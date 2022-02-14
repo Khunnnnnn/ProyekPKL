@@ -13,24 +13,40 @@
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                  <div class="modal-content bg-warning">
+                    <div class="modal-header text-white">
                       <h5 class="modal-title" id="staticBackdropLabel">Tambah Pengguna Baru</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-white">
                       <form>
                         <div class="form-group">
                           <label for="nama">Nama Pengguna</label>
-                          <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" placeholder="Masukkan Nama Pengguna">
+                          <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                          <label for="ktp">KTP</label>
+                          <input type="number" class="form-control" id="ktp" placeholder="Kartu Tanda Penduduk">
+                        </div>
+                        <div class="form-group">
+                          <label for="ktp">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="New Password">
+                        </div>
+                        <div class="form-group">
+                          <label for="ktp">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Confirm Password">
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Understood</button>
+                      <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-success">Selesai</button>
                     </div>
                   </div>
                 </div>

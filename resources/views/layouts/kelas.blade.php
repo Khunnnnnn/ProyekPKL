@@ -30,19 +30,19 @@
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batalkan</button>
+                      <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
                       <button type="submit" class="btn btn-success">Selesai</button>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <table id="datatables" class="table table-bordered table-striped" style="font-size: 15px;">
+              <table id="datatables" class="table table-bordered table-sm table-striped" style="font-size: 15px;">
                 <thead>
                   <tr>
-                    <th style="width: 5%;">No.</th>
+                    <th style="width: 3%;">No.</th>
                     <th style="width: 13%;">Nama Kelas</th>
-                    <th style="width: 20%;">Aksi</th>
+                    <th style="width: 12%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,9 +50,8 @@
                     <td>1</td>
                     <td>Mario Jose</td>
                     <td class="text-right">
-                      <button type="button" class="btn btn-warning">Nonaktif</button>
-                      <button type="button" class="btn btn-primary">Edit</button>
-                      <button type="button" class="btn btn-danger">Hapus</button>
+                      <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm">Hapus</button>
                     </td>
                   </tr>
                 </tbody>
