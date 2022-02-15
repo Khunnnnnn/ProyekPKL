@@ -41,7 +41,6 @@
             <p>Kelas</p>
           </a>
         </li>
-<<<<<<< HEAD
 
         <li class="nav-item ">
             <a class="nav-link ">
@@ -69,13 +68,6 @@
               </a>
             </li>
           </ul>
-=======
-        <li class="nav-item">
-          <a href="/kuis" class="nav-link">
-            <i class="fas fa-book-open nav-icon"></i>
-            <p>Kuis</p>
-          </a>
->>>>>>> 4db021f91a5bd719a91bd5c40b3c6d3838234c09
         </li>
         
         <li class="nav-item">
