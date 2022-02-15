@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KuisController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('/kelas', function () {
 });
 
 Route::resource('/kuis', KuisController::class);
+
+Route::get('/index', [LaporanController::class, 'index']);

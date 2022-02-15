@@ -24,6 +24,7 @@ class KuisController extends Controller
     public function create()
     {
         return view('layouts.kuis.tambahdatakuis');
+        return view('layouts.kuis.editdatakuis');
     }
 
     /**
@@ -56,7 +57,7 @@ class KuisController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

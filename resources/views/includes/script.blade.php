@@ -31,5 +31,9 @@
         "autoWidth": false,
         "responsive": true,
       });
+
+      $(document).ready(function() {
+    $('#example').DataTable();
+} );
     });
   </script>
