@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KelasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,8 @@ Route::get('/', function () {
     return view('layouts.admin');
 });
 
-Route::get('/kelas', function () {
-    return view('layouts.kelas');
+Route::resource('/kelas', KelasController::class);
+
+Route::get('/laporan', function () {
+    return view('layouts.laporan');
 });
