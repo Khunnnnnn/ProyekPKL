@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KuisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('/', function () {
 Route::get('/kelas', function () {
     return view('layouts.kelas');
 });
+
+Route::resource('/kuis', KuisController::class);
