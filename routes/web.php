@@ -1,7 +1,12 @@
 <?php
 
+<<<<<<< HEAD
 use App\Http\Controllers\KelasController;
+=======
+use App\Http\Controllers\AdminController;
+>>>>>>> 6f81caa012f58d4caa855eb133f703f55fdd0a8a
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KuisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +28,20 @@ Route::get('/guru', function () {
 });
 
 Route::get('/', function () {
-    return view('layouts.admin');
+    return view('layouts.dashboard');
 });
 
+<<<<<<< HEAD
 Route::resource('/kelas', KelasController::class);
 
 Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
+=======
+Route::get('/kelas', function () {
+    return view('layouts.kelas');
+});
+
+Route::resource('/kuis', KuisController::class);
+Route::resource('/admin-quiz', AdminController::class);
+>>>>>>> 6f81caa012f58d4caa855eb133f703f55fdd0a8a

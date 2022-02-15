@@ -12,13 +12,13 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="../gallery.html" class="nav-link">
+          <a href="/" class="nav-link">
             <i class="fas fa-tachometer-alt nav-icon"></i>
             <p>Dashboard</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/" class="nav-link">
+          <a href="/admin-quiz" class="nav-link">
             <i class="fas fa-user nav-icon"></i>
             <p>Admin</p>
           </a>
@@ -41,21 +41,48 @@
             <p>Kelas</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/kuis" class="nav-link">
-            <i class="fas fa-book-open nav-icon"></i>
-            <p>Kuis</p>
-          </a>
+
+        <li class="nav-item ">
+            <a class="nav-link ">
+              <i class="fas fa-book-open nav-icon"></i>
+              <p>
+                Kuis
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kategori</p>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/kuis" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Data Kuis</p>
+              </a>
+            </li>
+          </ul>
         </li>
+        
         <li class="nav-item">
           <a href="/laporan" class="nav-link">
             <i class="fas fa-flag nav-icon"></i>
             <p>Laporan</p>
           </a>
         </li>
+
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
   </div>
   <!-- /.sidebar -->
 </aside>
+
+
