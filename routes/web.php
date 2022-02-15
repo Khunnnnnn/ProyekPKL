@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KuisController;
 use App\Http\Controllers\LaporanController;
@@ -24,13 +26,20 @@ Route::get('/guru', function () {
 });
 
 Route::get('/', function () {
-    return view('layouts.admin');
+    return view('layouts.dashboard');
 });
 
-Route::get('/kelas', function () {
-    return view('layouts.kelas');
+Route::get('/laporan', function () {
+    return view('layouts.laporan');
 });
 
+<<<<<<< HEAD
 Route::resource('/kuis', KuisController::class);
 
 Route::get('/index', [LaporanController::class, 'index']);
+=======
+
+Route::resource('/kuis', KuisController::class);
+Route::resource('/admin-quiz', AdminController::class);
+Route::resource('/kelas', KelasController::class);
+>>>>>>> ede200ef50d32bb77769312f1f524e271d7891ad
