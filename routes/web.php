@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KuisController;
 
@@ -23,7 +24,7 @@ Route::get('/guru', function () {
 });
 
 Route::get('/', function () {
-    return view('layouts.admin');
+    return view('layouts.dashboard');
 });
 
 Route::get('/kelas', function () {
@@ -31,3 +32,4 @@ Route::get('/kelas', function () {
 });
 
 Route::resource('/kuis', KuisController::class);
+Route::resource('/admin-quiz', AdminController::class);
