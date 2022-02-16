@@ -33,6 +33,9 @@ Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
 
+Route::get('/kategorikuis', function () {
+    return view('layouts.kuis.kategorikuis');
+});
 
 Route::resource('/kuis', KuisController::class);
 Route::resource('/admin-quiz', AdminController::class);
