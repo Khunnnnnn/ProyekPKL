@@ -1,0 +1,149 @@
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 992px) {
+    .rounded-lg-3 {
+        border-radius: 0.3rem;
+    }
+}
+
+#con1 {
+    background-color: #6F4C5B;
+    padding: 0;
+    padding-top: 5rem;
+}
+
+
+
+#judul1 {
+    padding-top: 10rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #F5E8C7;
+    text-align: left;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.caption-header{
+    color: white;
+    font-size: 1rem;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+}
+
+#wave1 {
+    max-width: 100%;
+    display: flex;
+    padding: 0;
+    max-height: 100%;
+}
+
+#con2 {
+    background-color: #F5E8C7;
+    padding: 0;
+}
+
+#about {
+    background-color: #DEBA9D;
+}
+
+#judul2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+a.btn {
+    background-color: #9E7777;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    color: white;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#about {
+    padding: 0;
+    background-color: #DEBA9D;
+}
+
+#check1 {
+    padding-top: 10rem;
+}
+
+#card1 {
+    background-color: #F5E8C7;
+}
+
+#card2 {
+    background-color: #DEBA9D;
+}
+
+.list1 {
+    margin-top: 4.5rem;
+}
+
+#contact {
+    background-color: #9E7777;
+    padding: 0;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100%;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-inner {
+    max-width: 50%;
+    padding: 0;
+}
+
+#caption1 {
+    color: black;
+    border: 0;
+    background-color: #DEBA9D;
+}
+
+#card3{
+    background-color: #9E7777;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}   

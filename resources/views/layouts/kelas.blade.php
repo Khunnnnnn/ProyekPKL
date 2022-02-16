@@ -86,7 +86,7 @@
                         <form action="{{ route('kelas.destroy', $data->id) }}" method="POST" class="d-inline">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure?')">Hapus</button>
+                          <button type="submit" class="btn btn-danger btn-sm" >Hapus</button>
                         </form>
 
                       </td>

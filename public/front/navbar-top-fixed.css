@@ -1,0 +1,19 @@
+/* Show it is fixed to the top */
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+#Navbarnav{
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+.nav-link{
+    margin-left: 0.5em;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}

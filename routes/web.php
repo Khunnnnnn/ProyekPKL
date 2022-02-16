@@ -40,3 +40,7 @@ Route::get('/kategorikuis', function () {
 Route::resource('/kuis', KuisController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);
+
+Route::get('/landing', function () {
+    return view('main');
+});

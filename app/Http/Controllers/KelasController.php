@@ -97,13 +97,14 @@ class KelasController extends Controller
         //
         $kelas = Kelaz::findOrFail($id);
         $kelas->delete();
-    
+        alert()->success('Post Deleted', 'Successfully')->toToast();
         if ($kelas) {
             return redirect()
                 ->route('kelas.index')
                 ->with([
                     'success' => 'kelas has been deleted successfully'
                 ]);
+               
         } else {
             return redirect()
                 ->route('kelas.index')
