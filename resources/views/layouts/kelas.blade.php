@@ -68,26 +68,26 @@
                         </div>
 
                         <!-- Penutup -->
-                        <table id="datatables" class="table table-bordered table-striped" style="font-size: 15px;">
+                        <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
                             <thead>
                                 <tr>
-                                    <th style="width: 5%;">No.</th>
+                                    <th style="width: 2%;">No.</th>
                                     <th style="width: 13%;">Nama Kelas</th>
-                                    <th style="width: 20%;">Aksi</th>
+                                    <th style="width: 6%;">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($kelas as $data)
                                 <tr>
-                                    <td>{{$data->id}}</td>
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$data->nama_kelas}}</td>
                                     <td class="text-right">
-                                        <button type="button" class="btn btn-warning">Nonaktif</button>
-                                        <a href="#" class="btn btn-primary" onclick="edit_partner(this)" data-target="#edit_partner" data-toggle="modal" data-id="{{$data->id}}">abc</a>
-                                        <form action="{{route('kelas.destroy',$data->id)}}" method="POST">
+                                        <button type="button" class="btn btn-warning btn-sm">Nonaktif</button>
+                                        <a href="#" class="btn btn-primary btn-sm" onclick="edit_partner(this)" data-target="#edit_partner" data-toggle="modal" data-id="{{$data->id}}">Edit</a>
+                                        <form action="{{route('kelas.destroy',$data->id)}}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"  onclick="return confirm('are you sure?')">Hapus</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('are you sure?')">Hapus</button>
                                         </form>
                                        
                                     </td>
