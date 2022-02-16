@@ -12,15 +12,15 @@
 
               <!-- Modal Tambah Admin -->
               <div class="modal fade" id="tambahAdmin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content bg-warning">
-                    <div class="modal-header text-white" style="background-color: #DAA520; border:none !important;">
+                    <div class="modal-header text-white" style="background-color: #ea9f1c; border:none !important;">
                       <h5 class="modal-title" id="staticBackdropLabel">Administrator Baru</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body text-white">
+                    <div class="modal-body text-white" style="background-color: #ffa200;">
                       <form>
                         <div class="form-group">
                           <label for="nama">Nama Pengguna</label>
@@ -44,7 +44,7 @@
                         </div>
                       </form>
                     </div>
-                    <div class="modal-footer" style="background-color: #DAA520; border:none !important;">
+                    <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
                       <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
                       <button type="submit" class="btn btn-success">Selesai</button>
                     </div>
@@ -80,15 +80,15 @@
 
                       <!-- Modal Edit Admin -->
                       <div class="modal fade" id="editAdmin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content bg-warning">
-                            <div class="modal-header text-white" style="background-color: #DAA520; border:none !important;">
+                            <div class="modal-header text-white" style="background-color: #ea9f1c; border:none !important;">
                               <h5 class="modal-title" id="staticBackdropLabel">Administrator Baru</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <div class="modal-body text-white">
+                            <div class="modal-body text-white" style="background-color: #ffa200;">
                               <form>
                                 <div class="form-group">
                                   <label for="nama">Nama Pengguna</label>
@@ -112,7 +112,7 @@
                                 </div>
                               </form>
                             </div>
-                            <div class="modal-footer" style="background-color: #DAA520; border:none !important;">
+                            <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
                               <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
                               <button type="submit" class="btn btn-success">Selesai</button>
                             </div>
