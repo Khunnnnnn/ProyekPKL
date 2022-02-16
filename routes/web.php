@@ -33,13 +33,7 @@ Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
 
-<<<<<<< HEAD
-Route::resource('/kuis', KuisController::class);
-Route::resource('/admin-quiz', AdminController::class);
-Route::resource('/layouts/kelas', KelasController::class);
-=======
 
 Route::resource('/kuis', KuisController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);
->>>>>>> 4147154a2cd7aef56eb1a358bfea08106f17e83c
