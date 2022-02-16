@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelaz;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KelasController extends Controller
 {
@@ -45,7 +47,9 @@ class KelasController extends Controller
         $kelas = new Kelaz;
         $kelas->nama_kelas = $request->namakelas;
         $kelas->save();
-        return redirect()->route('layouts.kelas')->with(compact('kelas'));;
+        Alert::success('Congrats', 'You\'ve Successfully Registered');
+        return redirect()->route('kelas.index')->with(compact('kelas'));
+       
     }
 
     /**
@@ -91,5 +95,21 @@ class KelasController extends Controller
     public function destroy($id)
     {
         //
+        $kelas = Kelaz::findOrFail($id);
+        $kelas->delete();
+    
+        if ($kelas) {
+            return redirect()
+                ->route('kelas.index')
+                ->with([
+                    'success' => 'kelas has been deleted successfully'
+                ]);
+        } else {
+            return redirect()
+                ->route('kelas.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
     }
 }

@@ -6,6 +6,7 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
+  @include('sweetalert::alert')
   <div class="wrapper">
 
     @include('includes.navbar')

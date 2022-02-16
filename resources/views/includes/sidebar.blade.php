@@ -36,7 +36,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/kelas" class="nav-link">
+          <a href="/layouts/kelas" class="nav-link">
             <i class="fas fa-door-closed nav-icon"></i>
             <p>Kelas</p>
           </a>
