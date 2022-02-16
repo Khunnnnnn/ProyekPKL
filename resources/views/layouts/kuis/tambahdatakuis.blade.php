@@ -8,11 +8,13 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-                <div class="d-flex flex-row"> 
+                <div class="d-flex flex-row">
+                  <a href="/kuis"> 
                         <button type="button" class="close" aria-label="Close">
                             <p class="text-lg">  <span aria-hidden="true">&times;</span>
                             Tambah Kuis Baru</p> 
-                        </button>           
+                        </button>
+                    </a>           
                 </div>
                
                 <div class="card">
@@ -157,9 +159,11 @@
           <div class="footer">
               <div class="d-flex mb-3">
                 <div class="mr-auto">
-                  <button type="button" class="btn btn-danger text-white">
-                    Batal
-                  </button>
+                  <a href="/kuis">
+                    <button type="button" class="btn btn-danger text-white">
+                      Batal
+                    </button>
+                  </a>
                   <button
                     type="button"
                     class="btn btn-info text-white mr-auto"
