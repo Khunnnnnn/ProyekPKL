@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,7 @@ class AdminController extends Controller
         return view('layouts.admin', [
             'title' => "Admin Quiz",
             // 'smallTitle' => "Admin",
-            // 'admins' => Admin::all()
+            'admins' => Admin::all()
         ]);
     }
 
@@ -39,7 +40,19 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:100',
+            'email' => 'required|email:dns|unique:admins|max:100',
+            'ktp' => 'required|max:20',
+            'password' => 'required|min:5|max:100',
+        ]);
+
+        // $aktif = 'Aktif';
+        // $terverivikasi = 'Sudah Terverivikasi';
+
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        Admin::create($validatedData);
     }
 
     /**

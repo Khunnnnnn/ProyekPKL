@@ -18,9 +18,9 @@ class CreateAdminsTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->integer('ktp');
-            $table->integer('password');
-            $table->string('tervervikasi');
-            $table->string('aktif');
+            $table->string('password');
+            $table->string('tervervikasi')->nullable();
+            $table->string('aktif')->nullable();
             $table->timestamps();
         });
     }
