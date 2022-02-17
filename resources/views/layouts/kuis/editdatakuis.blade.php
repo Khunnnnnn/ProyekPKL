@@ -166,11 +166,11 @@
                             <div class="col-8 ml-2 mt-2">
                                 <label>Mata Pelajaran</label>
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option>~Mata Pelajaran~</option>
-                                        <option>Pendidikan Agama dan Budi Pekerti</option>
-                                        <option>Matematika Dasar</option>   
-                                    </select>
+                                  <select class="form-control">
+                                    <option disabled selected>~Mata Pelajaran~</option>
+                                    <option>Pendidikan Agama dan Budi Pekerti</option>
+                                    <option>Matematika Dasar</option>   
+                                  </select>
                                 </div>
 
                                 <div>
@@ -182,7 +182,7 @@
 
                                     <div class="p-2 flex-fill">
                                       <label>Nilai Minimun Kelulusan</label>
-                                      <input type="nilai" class="form-control" placeholder="Nilai Minimun Kelulusan">
+                                      <input type="number" class="form-control" placeholder="Nilai Minimun Kelulusan">
                                     </div>
                                   </div>
                                 </div>
@@ -199,7 +199,7 @@
                                       </div>
 
                                       <div class="p-2 ">
-                                        <input type="durasi" class="form-control" placeholder="durasi soal per detik">
+                                        <input type="number" class="form-control" placeholder="durasi soal per detik">
                                       </div>
 
                                       <div class="p-2 ml-auto">
@@ -213,7 +213,9 @@
                                   <div class="p-2 flex-fill">
                                     <label> Video</label>
                                     <div class="input-group-prepend">
-                                      <div class="input-group-text">Pilih</div>
+                                      <a href="#">
+                                        <div class="input-group-text">Pilih</div>
+                                      </a>
                                         <input type="text" class="form-control" placeholder="belum ada yang di pilih">
                                         <button type="button" class="btn btn-danger">Reset</button>
                                       </div>                                      
@@ -223,9 +225,11 @@
                                   <div class="p-2 flex-fill">
                                     <label>Gambar</label>
                                       <div class="input-group-prepend">
+                                        <a href="#">
                                           <div class="input-group-text">Pilih</div>
-                                            <input type="text" class="form-control" placeholder="belum ada yang di pilih">
-                                            <button type="button" class="btn btn-danger">Reset</button>
+                                        </a>
+                                          <input type="text" class="form-control" placeholder="belum ada yang di pilih">
+                                          <button type="button" class="btn btn-danger">Reset</button>
                                       </div>  
                                   </div> 
                                 </div>
@@ -273,7 +277,7 @@
                   </button>
                 </div>
 
-                <div class="p-2 text-white">
+                <div class="text-white">
                   <button type="submit" class="btn btn-success">
                     Tambah Soal
                   </button>

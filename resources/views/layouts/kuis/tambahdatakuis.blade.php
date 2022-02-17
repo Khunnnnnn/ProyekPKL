@@ -32,31 +32,30 @@
                                 </div>
 
                                 <div class="ml-2"  style=" height: 750px; width: 250px; overflow-y: auto;">
-
                                   <div>
-                                      <label class="ml-3 mt-2">
-                                        <i class="fas fa-book mr-2"></i> Soal 1</label>
+                                    <label class="ml-3 mt-2">
+                                      <i class="fas fa-book mr-2"></i> Soal 1
+                                    </label>
+                                      <p class="badge badge-info ml-5">
+                                        <i class="fas fa-edit"></i>
+                                      </p>
 
-                                        <p class="badge badge-info ml-5">
-                                          <i class="fas fa-edit"></i>
-                                        </p>
-
-                                        <p class="badge badge-danger">
-                                          <i class="fas fa-trash-alt"></i>
-                                        </p>
+                                      <p class="badge badge-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                      </p>
                                   </div>
 
                                   <div>
-                                      <label class="ml-3 mt-2">
-                                        <i class="fas fa-book mr-2"></i> Soal 2</label>
+                                    <label class="ml-3 mt-2">
+                                      <i class="fas fa-book mr-2"></i> Soal 2
+                                    </label>
+                                      <p class="badge badge-info ml-5">
+                                        <i class="fas fa-edit"></i>
+                                      </p>
 
-                                        <p class="badge badge-info ml-5">
-                                          <i class="fas fa-edit"></i>
-                                        </p>
-
-                                        <p class="badge badge-danger">
-                                          <i class="fas fa-trash-alt"></i>
-                                        </p>
+                                      <p class="badge badge-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                      </p>
                                   </div>
                                 </div>
                             </div>
@@ -64,11 +63,11 @@
                             <div class="col-8 ml-2 mt-2">
                                 <label>Mata Pelajaran</label>
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option>~Mata Pelajaran~</option>
-                                        <option>Pendidikan Agama dan Budi Pekerti</option>
-                                        <option>Matematika Dasar</option>   
-                                    </select>
+                                  <select class="form-control">
+                                    <option disabled selected>~Mata Pelajaran~</option>
+                                    <option>Pendidikan Agama dan Budi Pekerti</option>
+                                    <option>Matematika Dasar</option>   
+                                  </select>
                                 </div>
 
                                 <div>
@@ -80,7 +79,7 @@
 
                                     <div class="p-2 flex-fill">
                                       <label>Nilai Minimun Kelulusan</label>
-                                      <input type="nilai" class="form-control" placeholder="Nilai Minimun Kelulusan">
+                                      <input type="number" class="form-control" placeholder="Nilai Minimun Kelulusan">
                                     </div>
                                   </div>
                                 </div>
@@ -91,64 +90,66 @@
                                 </div>
 
                                 <div>
-                                    <div class="d-flex ">
-                                      <div class="p-2">
-                                        <label>Soal</label>
-                                      </div>
-
-                                      <div class="p-2 ">
-                                        <input type="durasi" class="form-control" placeholder="durasi soal per detik">
-                                      </div>
-
-                                      <div class="p-2 ml-auto">
-                                        <button type="button" class="btn btn-danger">Bersihkan</button>
-                                      </div>
+                                  <div class="d-flex ">
+                                    <div class="p-2">
+                                      <label>Soal</label>
                                     </div>
+
+                                    <div class="p-2 ">
+                                      <input type="number" class="form-control" placeholder="durasi soal per detik">
+                                    </div>
+
+                                    <div class="p-2 ml-auto">
+                                      <button type="button" class="btn btn-danger">Bersihkan</button>
+                                    </div>
+                                  </div>
                                     <textarea class="form-control" rows="5"></textarea>
                                 </div>
 
                                 <div class="d-flex mt-2">
                                   <div class="p-2 flex-fill">
                                     <label> Video</label>
-                                    <div class="input-group-prepend">
-                                      <div class="input-group-text">Pilih</div>
-                                        <input type="text" class="form-control" placeholder="belum ada yang di pilih">
-                                        <button type="button" class="btn btn-danger">Reset</button>
+                                      <div class="input-group-prepend">
+                                        <a href="#">
+                                          <div class="input-group-text">Pilih</div>
+                                        </a>
+                                          <input type="text" class="form-control" placeholder="belum ada yang di pilih">
+                                          <button type="button" class="btn btn-danger">Reset</button>
                                       </div>                                      
                                   </div>
-                                  
 
                                   <div class="p-2 flex-fill">
                                     <label>Gambar</label>
                                       <div class="input-group-prepend">
+                                        <a href="#">
                                           <div class="input-group-text">Pilih</div>
-                                            <input type="text" class="form-control" placeholder="belum ada yang di pilih">
-                                            <button type="button" class="btn btn-danger">Reset</button>
+                                        </a>
+                                          <input type="text" class="form-control" placeholder="belum ada yang di pilih">
+                                          <button type="button" class="btn btn-danger">Reset</button>
                                       </div>  
                                   </div> 
                                 </div>
-
                             <div>
                               <label>Jawaban</label>
                               <table class="table table-active">
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">1</th>
-                                      <td>Teks</td>
-                                      <td>Bergambar</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">2</th>
-                                      <td>Teks</td>
-                                      <td>Bergambar</td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">3</th>
-                                      <td>Teks</td>
-                                      <td>Bergambar</td>
-                                    </tr>
-                                  </tbody>
-                                </table>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Teks</td>
+                                    <td>Bergambar</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td>Teks</td>
+                                    <td>Bergambar</td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td>Teks</td>
+                                    <td>Bergambar</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                             </div>
                         </div>
                     </div>
@@ -157,30 +158,28 @@
           </div>
 
           <div class="footer">
-              <div class="d-flex mb-3">
-                <div class="mr-auto">
-                  <a href="/kuis">
-                    <button type="button" class="btn btn-danger text-white">
-                      Batal
-                    </button>
-                  </a>
-                  <button
-                    type="button"
-                    class="btn btn-info text-white mr-auto"
-                    data-dismiss="footer"
-                  >
+            <div class="d-flex mb-2">
+              <div class="mr-auto">
+                <a href="/kuis">
+                  <button type="button" class="btn btn-danger text-white">
+                    Batal
+                  </button>
+                </a>
+                <button type="button" class="btn btn-info text-white">
                     Kembalikan Soal
-                  </button>
-                </div>
+                </button>
+              </div>
 
-                <div class="p-2 text-white">
-                  <button type="submit" class="btn btn-success">
-                    Tambah Soal
-                  </button>
-                  <button type="submit" class="btn btn-success">Selesai</button>
-                </div>
+              <div class="text-white">
+                <button type="submit" class="btn btn-success">
+                  Tambah Soal
+                </button>
+                <button type="submit" class="btn btn-success">
+                  Selesai
+                </button>
               </div>
             </div>
+          </div>
           <!-- /.card -->
         </div>
         <!-- /.col -->
