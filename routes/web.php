@@ -21,6 +21,10 @@ Route::get('/siswa', function () {
     return view('layouts.siswa');
 });
 
+Route::get('/login', function () {
+    return view('layouts.login.login');
+});
+
 Route::get('/guru', function () {
     return view('layouts.guru');
 });
