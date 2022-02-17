@@ -44,3 +44,4 @@ Route::resource('/kelas', KelasController::class);
 Route::get('/landing', function () {
     return view('main');
 });
+

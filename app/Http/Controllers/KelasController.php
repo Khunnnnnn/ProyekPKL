@@ -84,6 +84,12 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $update_kelas= Kelaz::find($id);
+        $update_kelas->nama_kelas=$request->updateNamaKelas;
+        $update_kelas->save();
+        Alert::success('Congrats', 'Data Berhasil Diubah');
+        return redirect()->route('kelas.index');
+
     }
 
     /**
