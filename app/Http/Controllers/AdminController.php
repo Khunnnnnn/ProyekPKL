@@ -17,7 +17,7 @@ class AdminController extends Controller
     {
         return view('layouts.admin', [
             'title' => "Admin Quiz",
-            'smallTitle' => "Admin",
+            'smallTitle' => " - Admin",
             'headTitle' => "Admin",
             'admins' => Admin::all()
         ]);

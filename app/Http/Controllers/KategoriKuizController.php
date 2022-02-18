@@ -16,7 +16,7 @@ class KategoriKuizController extends Controller
     {
         return view('layouts.kuis.kategorikuis', [
             'title' => "Kategori Mata Pelajaran",
-            'smallTitle' => "Mata Pelajaran",
+            'smallTitle' => " - Mata Pelajaran",
             'headTitle' => "Kategori Kuis",
             'mapels' => KategoriKuiz::all()
         ]);

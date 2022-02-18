@@ -18,7 +18,7 @@ class KelasController extends Controller
     {
         return view('layouts.kelas', [
             'title' => "Kelas",
-            'smallTitle' => "Kelas",
+            'smallTitle' => " - Kelas",
             'headTitle' => "Kelas",
             'kelas' => Kelaz::all()
         ]);

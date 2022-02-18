@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KuisController;
@@ -18,6 +19,11 @@ use App\Http\Controllers\LaporanController;
 |
 */
 
+// ROUTE DASHBOARD
+
+// Tampil Dashboard
+Route::get('/', [DashboardController::class, 'index']);
+
 Route::get('/siswa', function () {
     return view('layouts.siswa');
 });
@@ -28,10 +34,6 @@ Route::get('/login', function () {
 
 Route::get('/guru', function () {
     return view('layouts.guru');
-});
-
-Route::get('/', function () {
-    return view('layouts.dashboard');
 });
 
 Route::get('/laporan', function () {
