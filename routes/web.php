@@ -49,3 +49,7 @@ Route::get('/landing', function () {
     return view('main');
 });
 
+// Route::group(['middleware' => ['auth:admin']], function() {
+//     Route::get('/users', [UserController::class, 'users']);
+// });
+
