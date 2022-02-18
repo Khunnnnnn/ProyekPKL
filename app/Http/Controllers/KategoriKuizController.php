@@ -15,8 +15,9 @@ class KategoriKuizController extends Controller
     public function index()
     {
         return view('layouts.kuis.kategorikuis', [
-            'title' => "Kategori Quiz",
-            // 'smallTitle' => "Admin",
+            'title' => "Kategori Mata Pelajaran",
+            'smallTitle' => "Mata Pelajaran",
+            'headTitle' => "Kategori Kuis",
             'mapels' => KategoriKuiz::all()
         ]);
     }

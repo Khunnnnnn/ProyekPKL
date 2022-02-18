@@ -16,9 +16,12 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
-        $kelas = Kelaz::all();
-        return view('layouts.kelas',compact('kelas'));
+        return view('layouts.kelas', [
+            'title' => "Kelas",
+            'smallTitle' => "Kelas",
+            'headTitle' => "Kelas",
+            'kelas' => Kelaz::all()
+        ]);
     }
 
     /**
