@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriKuiz;
 use Illuminate\Http\Request;
 
-class KategoriController extends Controller
+class KategoriKuizController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,11 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //return view('layouts.kuis.kategorikuis');
-
+        return view('layouts.kuis.kategorikuis', [
+            'title' => "Kategori Quiz",
+            // 'smallTitle' => "Admin",
+            'mapels' => KategoriKuiz::all()
+        ]);
     }
 
     /**
@@ -35,7 +39,11 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-       
+        $validatedData = $request->validate([
+            'nama_kategori' => 'required|max:100',
+        ]);
+
+        KategoriKuiz::create($validatedData);
     }
 
     /**
