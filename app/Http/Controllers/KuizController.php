@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class KuisController extends Controller
+class KuizController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,12 @@ class KuisController extends Controller
      */
     public function index()
     {
-        return view('layouts.kuis.datakuis');
+        return view('layouts.kuis.datakuis', [
+            'title' => "Kuis",
+            'smallTitle' => " - Kuis",
+            'headTitle' => "Kuis",
+            // 'kelas' => Kuizs::all()
+        ]);
     }
 
     /**
@@ -23,8 +28,12 @@ class KuisController extends Controller
      */
     public function create()
     {
-        return view('layouts.kuis.tambahdatakuis');
-        
+        return view('layouts.kuis.tambahdatakuis', [
+            'title' => "Kuis",
+            'smallTitle' => " - Kuis",
+            'headTitle' => "Kuis",
+            // 'kelas' => Kuizs::all()
+        ]);
     }
 
     /**
@@ -46,7 +55,7 @@ class KuisController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -57,7 +66,12 @@ class KuisController extends Controller
      */
     public function edit($id)
     {
-        return view('layouts.kuis.editdatakuis');
+        return view('layouts.kuis.editdatakuis', [
+            'title' => "Kuis",
+            'smallTitle' => " - Kuis",
+            'headTitle' => "Kuis",
+            // 'kelas' => Kuizs::all()
+        ]);
     }
 
     /**

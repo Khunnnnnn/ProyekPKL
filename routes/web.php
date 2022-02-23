@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KuisController;
+use App\Http\Controllers\KuizController;
 use App\Http\Controllers\LaporanController;
 
 /*
@@ -40,7 +40,7 @@ Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
 
-Route::resource('/kuis', KuisController::class);
+Route::resource('/kuis', KuizController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);
 
