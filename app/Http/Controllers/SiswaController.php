@@ -24,7 +24,11 @@ class SiswaController extends Controller
         // dd($siswa);
         return view('layouts.siswa', [
             'kelas' => $kelas,
-            'siswa' => $siswa
+            'siswa' => $siswa,
+            'title' => "Siswa",
+            'smallTitle' => " - Siswa",
+            'headTitle' => "Siswa",
+
         ]);
     }
 
