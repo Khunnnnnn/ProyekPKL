@@ -110,5 +110,9 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         //
+        $siswa = siswa::findOrFail($id);
+        $siswa->delete();
+        alert()->success('Post Deleted', 'Successfully')->toToast();
+        return redirect()->route('siswa.index');
     }
 }
