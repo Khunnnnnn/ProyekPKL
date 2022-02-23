@@ -139,7 +139,7 @@
                   <td>NULL</td>
                   <td class="text-right">
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
-                    <form action="#" method="POST" class="d-inline">
+                    <form action="{{route('siswa.destroy',$data->id)}}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
