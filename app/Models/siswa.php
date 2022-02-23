@@ -10,8 +10,8 @@ class siswa extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function siswa()
+    public function Kelaz()
     {
-        return $this->hasOne(Kelaz::class);
+        return $this->belongsTo(Kelaz::class,'id');
     }
 }

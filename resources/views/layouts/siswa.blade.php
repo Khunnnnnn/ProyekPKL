@@ -134,7 +134,7 @@
                   <td>{{ $data->email_siswa }}</td>
                   <td>{{ $data->nis_siswa }}</td>
                   <td>{{ $data->created_at }}</td>
-                  <td>{{ $data->id_kelas }}</td>
+                  <td>{{ $data->Kelaz->nama_kelas }}</td>
                   <td> NULL</td>
                   <td>NULL</td>
                   <td class="text-right">

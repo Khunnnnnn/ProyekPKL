@@ -19,7 +19,9 @@ class SiswaController extends Controller
     {
         //
         $kelas = Kelaz::all();
+        
         $siswa = siswa::all();
+        // dd($siswa);
         return view('layouts.siswa', [
             'kelas' => $kelas,
             'siswa' => $siswa

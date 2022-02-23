@@ -12,8 +12,8 @@ class Kelaz extends Model
         'nama_kelas'
     ];
 
-    public function Kelaz()
+    public function Siswa()
     {
-        return $this->belongsTo(siswa::class);
+        return $this->hasMany(siswa::class,'id_kelas');
     }
 }

@@ -19,8 +19,7 @@ class CreateSiswasTable extends Migration
             $table->string('email_siswa');
             $table->integer('nis_siswa');
             $table->date('tanggal_daftar')->nullable();
-            $table->unsignedBigInteger('id_kelas');
-            $table->foreign('id_kelas')->references('id')->on('kelazs');
+            $table->foreignId('id_kelas');
             $table->string('password');
             $table->timestamps();
         });
