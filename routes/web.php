@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KuizController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\KelasController;
@@ -33,10 +34,6 @@ Route::get('/login', function () {
     return view('layouts.login.login');
 });
 
-Route::get('/guru', function () {
-    return view('layouts.guru');
-});
-
 Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
@@ -45,8 +42,7 @@ Route::resource('/kuis', KuizController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);
 Route::resource('/siswa', SiswaController::class);
-
-
+Route::resource('/guru', GuruController::class);
 Route::resource('/kategorikuis', KategoriKuizController::class);
 
 Route::get('/landing', function () {
