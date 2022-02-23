@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kelaz extends Model
+class siswa extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'nama_kelas'
-    ];
+    protected $guarded = ['id'];
 
-    public function Kelaz()
+    public function siswa()
     {
-        return $this->belongsTo(siswa::class);
+        return $this->hasOne(Kelaz::class);
     }
 }

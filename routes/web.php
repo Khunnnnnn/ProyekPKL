@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\KelasController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KuisController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KuizController;
-use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,9 @@ use App\Http\Controllers\LaporanController;
 // Tampil Dashboard
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/siswa', function () {
-    return view('layouts.siswa');
-});
+// Route::get('/siswa', function () {
+//     return view('layouts.siswa');
+// });
 
 Route::get('/login', function () {
     return view('layouts.login.login');
@@ -43,6 +44,7 @@ Route::get('/laporan', function () {
 Route::resource('/kuis', KuizController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);
+Route::resource('/siswa', SiswaController::class);
 
 
 Route::resource('/kategorikuis', KategoriKuizController::class);
