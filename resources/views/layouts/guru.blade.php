@@ -10,29 +10,6 @@
           <div class="card-body">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Tambah</button>
 
-<<<<<<< HEAD
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Pengguna Baru</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="nama">Nama Pengguna</label>
-                        <input type="text" class="form-control" id="nama" aria-describedby="emailHelp" placeholder="Masukkan Nama Pengguna">
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-=======
               <!-- Modal -->
               <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -71,7 +48,6 @@
                       <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
                       <button type="submit" class="btn btn-success">Selesai</button>
                     </div>
->>>>>>> 6f81caa012f58d4caa855eb133f703f55fdd0a8a
                   </div>
                 </div>
               </div>

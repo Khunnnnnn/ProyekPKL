@@ -37,13 +37,14 @@
                       </div>
                       <div class="form-group">
                         <label for="ktp">Kelas</label>
-                        <select class="form-select" aria-label="Default select example" name="kelas_siswa">
-                          <option value="select product">
-                            @foreach ($kelas as $row)
-                          <option value="{{$row->id}}">
-                            {{$row->nama_kelas}}
-                          </option>
-                          @endforeach
+                        <select class="form-control"  name="kelas_siswa">
+                          <option disabled selected>Masukkan Kelas</option>
+                            <option value="select product">
+                              @foreach ($kelas as $row)
+                            <option value="{{$row->id}}">
+                              {{$row->nama_kelas}}
+                            </option>
+                            @endforeach
                           </option>
                         </select>
                       </div>

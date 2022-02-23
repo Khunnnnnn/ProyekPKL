@@ -12,6 +12,6 @@ class siswa extends Model
 
     public function Kelaz()
     {
-        return $this->belongsTo(Kelaz::class,'id');
+        return $this->belongsTo(Kelaz::class,'id_kelas');
     }
 }
