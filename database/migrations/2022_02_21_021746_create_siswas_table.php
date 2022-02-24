@@ -20,6 +20,7 @@ class CreateSiswasTable extends Migration
             $table->integer('nis_siswa');
             $table->date('tanggal_daftar')->nullable();
             $table->foreignId('id_kelas');
+            $table->foreignId('id_jurusan');
             $table->string('password');
             $table->timestamps();
         });

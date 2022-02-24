@@ -35,11 +35,33 @@
             <p>Guru</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="/kelas" class="nav-link">
+
+        <li class="nav-item ">
+            <a class="nav-link ">
             <i class="fas fa-door-closed nav-icon"></i>
-            <p>Kelas</p>
-          </a>
+              <p>
+                Kelas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="/kelas" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Data Kelas</p>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Jurusan</p>
+              </a>
+            </li>
+          </ul>
         </li>
 
         <li class="nav-item ">

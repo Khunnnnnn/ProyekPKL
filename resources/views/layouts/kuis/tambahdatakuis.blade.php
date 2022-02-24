@@ -183,6 +183,6 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+</section>
+<!-- /.content -->
 @endsection
