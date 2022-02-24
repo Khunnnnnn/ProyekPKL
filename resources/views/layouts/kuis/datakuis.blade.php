@@ -11,7 +11,7 @@
               <a href="/kuis/create">
                 <button type="button" class="btn btn-success">Tambah</button>
               </a>
-              
+
               <table id="datatables" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
                 <thead>
                   <tr>
@@ -21,34 +21,25 @@
                     <th>Deskripsi</th>
                     <th>Aksi</th>
                   </tr>
-                  </thead>
+                </thead>
 
-                  <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Kelas X Pendidikan Agama dan Budi Pekerti</td>
-                    <td>Ulangan Kenaikan Kelas</td>
-                    <td>Pilihlah salah satu jawaban yang paling benar</td>
-                    <td>
-                      <button type="button" class="btn btn-info btn-sm">Set jadwal</button>
-                      <a href="/kuis/edit">
-                        <button type="button" class="btn btn-success btn-sm">Edit</button>
-                      </a>
-                      <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Kelas X Pendidikan Agama dan Budi Pekerti</td>
-                    <td>Ulangan Kenaikan Kelas</td>
-                    <td>Pilihlah salah satu jawaban yang paling benar</td>
-                    <td>
-                      <button type="button" class="btn btn-info btn-sm">Set jadwal</button>
-                      <button type="button" class="btn btn-success btn-sm">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm">Hapus</button>
-                    </td>
-                  </tr>
-                  </tbody>
+                <tbody>
+                  @foreach ($kuiz as $item)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $item->kategoriKuiz->nama_kategori }}</td>
+                      <td>{{ $item->judul }}</td>
+                      <td>{{ $item->deskripsi }}</td>
+                      <td>
+                        <button type="button" class="btn btn-info btn-sm">Set jadwal</button>
+                        <a href="/kuis/edit">
+                          <button type="button" class="btn btn-success btn-sm">Edit</button>
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                      </td>
+                    </tr>
+                  @endforeach
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->
@@ -60,14 +51,6 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-    <style>
-      .table{
-        max-width: 900px;
-        margin: 0 auto;
-        overflow-x: scroll;
-        white-space: nowrap;
-      }
-    </style>
   </section>
   <!-- /.content -->
 @endsection

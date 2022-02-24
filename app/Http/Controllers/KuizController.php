@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KategoriKuiz;
+use App\Models\Kuiz;
 use Illuminate\Http\Request;
 
 class KuizController extends Controller
@@ -13,11 +15,12 @@ class KuizController extends Controller
      */
     public function index()
     {
+
         return view('layouts.kuis.datakuis', [
             'title' => "Kuis",
             'smallTitle' => " - Kuis",
             'headTitle' => "Kuis",
-            // 'kelas' => Kuizs::all()
+            'kuiz' => Kuiz::all()
         ]);
     }
 
@@ -32,6 +35,7 @@ class KuizController extends Controller
             'title' => "Kuis",
             'smallTitle' => " - Kuis",
             'headTitle' => "Kuis",
+            'kategori_kuiz' => KategoriKuiz::all(),
             // 'kelas' => Kuizs::all()
         ]);
     }
@@ -44,7 +48,23 @@ class KuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kategori_kuiz' => 'required|max:100',
+            'judul' => 'required|max:100',
+            'nilai_kkm' => 'required|max:3',
+            'deskripsi' => 'required',
+            'soal' => 'required',
+        ]);
+
+        Kuiz::create([
+            'kategori_kuiz_id' => $request->kategori_kuiz,
+            'judul' => $request->judul,
+            'nilai_kkm' => $request->nilai_kkm,
+            'deskripsi' => $request->deskripsi,
+            'soal' => $request->soal,
+        ]);
+
+        return redirect('/kuis/create');
     }
 
     /**
