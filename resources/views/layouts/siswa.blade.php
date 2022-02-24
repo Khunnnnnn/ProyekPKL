@@ -37,24 +37,29 @@
                       </div>
                       <div class="form-group">
                         <label for="ktp">Kelas</label>
-                        <select class="form-control"  name="kelas_siswa">
+                        <select class="form-control" name="kelas_siswa">
                           <option disabled selected>Masukkan Kelas</option>
-                            <option value="select product">
-                              @foreach ($kelas as $row)
-                            <option value="{{$row->id}}">
-                              {{$row->nama_kelas}}
-                            </option>
-                            @endforeach
+                          @foreach ($kelas as $row)
+                          <option value="{{$row->id}}">
+                            {{$row->nama_kelas}}
                           </option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="ktp">Kelas</label>
+                        <select class="form-control" name="jurusan_siswa">
+                          <option disabled selected>Masukkan Jurusan</option>
+                          @foreach ($jurusan as $row)
+                          <option value="{{$row->id}}">
+                            {{$row->nama_jurusan}}
+                          </option>
+                          @endforeach
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="ktp">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="New Password" name="pass_siswa">
-                      </div>
-                      <div class="form-group">
-                        <label for="ktp">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="confirm_pass">
+                        <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="pass_siswa">
                       </div>
 
                   </div>
@@ -67,51 +72,7 @@
               </div>
             </div>
 
-            <!-- Modal Edit Siswa -->
-            <div class="modal fade" id="editSiswa" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content bg-warning">
-                  <div class="modal-header text-white" style="background-color: #ea9f1c; border:none !important;">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Pengguna Baru</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body text-white" style="background-color: #ffa200;">
-                    <form action="#" method="POST">
-                      <div class="form-group">
-                        <label for="nama">Nama Pengguna</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna">
-                      </div>
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
-                      </div>
-                      <div class="form-group">
-                        <label for="ktp">NIS</label>
-                        <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa">
-                      </div>
-                      <div class="form-group">
-                        <label for="ktp">Kelas</label>
-                        <input type="text" class="form-control" id="ktp" placeholder="Kelas">
-                      </div>
-                      <div class="form-group">
-                        <label for="ktp">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="New Password">
-                      </div>
-                      <div class="form-group">
-                        <label for="ktp">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Confirm Password">
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
-                    <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Selesai</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
               <thead>
@@ -131,11 +92,11 @@
                 @foreach ($siswa as $data)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $data->nama_siswa }}</td>
+                  <td>{{ $data->nama_siswa   }}</td>
                   <td>{{ $data->email_siswa }}</td>
                   <td>{{ $data->nis_siswa }}</td>
                   <td>{{ $data->created_at }}</td>
-                  <td>{{ $data->Kelaz->nama_kelas }}</td>
+                  <td>{{$data->Jurusan->nama_jurusan}} | {{ $data->Kelaz->nama_kelas }}</td>
                   <td> NULL</td>
                   <td>NULL</td>
                   <td class="text-right">
@@ -150,9 +111,9 @@
                 <!-- Modal Update Barang-->
                 <div class="modal fade" id="modalUpdateBarang{{ $data->id }}" tabindex="-1" aria-labelledby="modalUpdateBarang" aria-hidden="true">
                   <div class="modal-dialog">
-                    <div class="modal-content">
+                    <div class="modal-content bg-warning  ">
                       <div class="modal-header">
-                        <h5 class="modal-title">Update Barang</h5>
+                        <h5 class="modal-title text-white">Update Siswa</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -162,30 +123,44 @@
                         <form action="#" method="post">
                           @csrf
                           @method('put')
-                            <div class="form-group">
-                              <label for="nama">Nama Pengguna</label>
-                              <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama_siswa}}">
-                            </div>
-                            <div class="form-group">
-                              <label for="email">Email</label>
-                              <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email_siswa}}">
-                            </div>
-                            <div class="form-group">
-                              <label for="ktp">NIS</label>
-                              <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa" value="{{ $data->nis_siswa}}">
-                            </div>
-                            <div class="form-group">
-                              <label for="ktp">Kelas</label>
-                              <input type="text" class="form-control" id="ktp" placeholder="Kelas" value="{{ $data->id_kelas}}">
-                            </div>
-                            <div class="form-group">
-                              <label for="ktp">Password</label>
-                              <input type="password" class="form-control" id="password" placeholder="New Password" value="{{ $data->password}}">
-                            </div>
-                            <div class="form-group">
-                              <label for="ktp">Password</label>
-                              <input type="password" class="form-control" id="password" placeholder="Confirm Password">
-                            </div>
+                          <div class="form-group">
+                            <label for="nama">Nama Pengguna</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama_siswa}}">
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email_siswa}}">
+                          </div>
+                          <div class="form-group">
+                            <label for="ktp">NIS</label>
+                            <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa" value="{{ $data->nis_siswa}}">
+                          </div>
+                          <div class="form-group">
+                            <label for="ktp">Kelas</label>
+                            <select class="form-control" name="kelas_siswa">
+                              <option disabled selected>Masukkan Kelas</option>
+                              @foreach ($kelas as $row)
+                              <option value="{{$row->id}}">
+                                {{$row->nama_kelas}}
+                              </option>
+                              @endforeach
+                            </select>
+                          </div>
+                          <div class="form-group">
+                        <label for="ktp">Kelas</label>
+                        <select class="form-control" name="jurusan_siswa">
+                          <option disabled selected>Masukkan Jurusan</option>
+                          @foreach ($jurusan as $row)
+                          <option value="{{$row->id}}">
+                            {{$row->nama_jurusan}}
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
+                          <div class="form-group">
+                            <!-- <label for="ktp">Password</label> -->
+                            <input type="hidden" class="form-control" id="password" placeholder="Confirm Password">
+                          </div>
                       </div>
                       <button type="submit" class="btn btn-primary">Perbarui Data</button>
                       </form>

@@ -6,6 +6,8 @@ use App\Models\Kelaz;
 use App\Models\siswa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Jurusan;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SiswaController extends Controller
@@ -19,12 +21,13 @@ class SiswaController extends Controller
     {
         //
         $kelas = Kelaz::all();
-        
+        $jurusan = Jurusan::all();
         $siswa = siswa::all();
         // dd($siswa);
         return view('layouts.siswa', [
             'kelas' => $kelas,
             'siswa' => $siswa,
+            'jurusan' => $jurusan,
             'title' => "Siswa",
             'smallTitle' => " - Siswa",
             'headTitle' => "Siswa",
@@ -56,6 +59,7 @@ class SiswaController extends Controller
             'email_siswa' => 'email',
             'nis_siswa' => 'max:13',
             'kelas_siswa' => 'required',
+            'jurusan_siswa' =>'required',
             'pass_siswa' => 'min:6'
         ]);
         // dd($request);
@@ -64,8 +68,9 @@ class SiswaController extends Controller
         $siswa->nama_siswa = $request->nama_siswa;
         $siswa->email_siswa = $request->email_siswa;
         $siswa->nis_siswa = $request->nis_siswa;
-        $siswa->id_kelas = $request->kelas_siswa;
-        $siswa->password = $request->pass_siswa;
+        $siswa->id_kelas = $request-> kelas_siswa;
+        $siswa->id_jurusan = $request-> jurusan_siswa;
+        $siswa->password = Hash::make($request->pass_siswa);
         $siswa->save();
         Alert::success('Congrats', 'You\'ve Successfully Registered');
         return redirect()->route('siswa.index')->with(compact('siswa'));

@@ -16,4 +16,5 @@ class Kelaz extends Model
     {
         return $this->hasMany(siswa::class,'id_kelas');
     }
+    
 }
