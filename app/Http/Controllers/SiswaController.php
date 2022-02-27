@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelaz;
 use App\Models\siswa;
+use App\Models\Status;
+use App\Models\Jurusan;
+use App\Models\Verifikasi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Jurusan;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -23,6 +25,8 @@ class SiswaController extends Controller
         $kelas = Kelaz::all();
         $jurusan = Jurusan::all();
         $siswa = siswa::all();
+        $verif = Verifikasi::all();
+        $status = Status::all();
         // dd($siswa);
         return view('layouts.siswa', [
             'kelas' => $kelas,
@@ -31,7 +35,8 @@ class SiswaController extends Controller
             'title' => "Siswa",
             'smallTitle' => " - Siswa",
             'headTitle' => "Siswa",
-
+            'verif' => $verif,
+            'status' => $status
         ]);
     }
 
@@ -70,6 +75,8 @@ class SiswaController extends Controller
         $siswa->nis_siswa = $request->nis_siswa;
         $siswa->id_kelas = $request-> kelas_siswa;
         $siswa->id_jurusan = $request-> jurusan_siswa;
+        $siswa->id_verifikasi = $request-> verifikasi;
+        $siswa->id_status = $request-> status;
         $siswa->password = Hash::make($request->pass_siswa);
         $siswa->save();
         Alert::success('Congrats', 'You\'ve Successfully Registered');
@@ -108,6 +115,15 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $update_siswa= siswa::find($id);
+        $update_siswa->nama_siswa=$request->updatenamasiswa;
+        $update_siswa->email_siswa=$request->updateemailsiswa;
+        $update_siswa->nis_siswa=$request->updatenissiswa;
+        $update_siswa->id_kelas=$request->updatekelassiswa;
+        $update_siswa->id_jurusan=$request->updatejurusansiswa;
+        $update_siswa->save();
+        Alert::success('Congrats', 'Data Berhasil Diubah');
+        return redirect()->route('siswa.index');
     }
 
     /**

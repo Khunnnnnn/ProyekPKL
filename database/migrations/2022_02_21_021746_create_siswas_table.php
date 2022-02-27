@@ -21,6 +21,8 @@ class CreateSiswasTable extends Migration
             $table->date('tanggal_daftar')->nullable();
             $table->foreignId('id_kelas');
             $table->foreignId('id_jurusan');
+            $table->foreignId('id_verifikasi');
+            $table->foreignId('id_status');
             $table->string('password');
             $table->timestamps();
         });
