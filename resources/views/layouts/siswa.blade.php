@@ -58,6 +58,28 @@
                         </select>
                       </div>
                       <div class="form-group">
+                        <label for="ktp">Verifikasi</label>
+                        <select class="form-control" name="verifikasi">
+                          <option disabled selected>Pilihan</option>
+                          @foreach ($verif as $row)
+                          <option value="{{$row->id}}">
+                            {{$row->Verifikasi}}
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="ktp">Status</label>
+                        <select class="form-control" name="status">
+                          <option disabled selected>Pilihan</option>
+                          @foreach ($status as $row)
+                          <option value="{{$row->id}}">
+                            {{$row->Status}}
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
+                      <div class="form-group">
                         <label for="ktp">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="pass_siswa">
                       </div>
@@ -71,8 +93,6 @@
                 </div>
               </div>
             </div>
-
-
 
             <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
               <thead>
@@ -97,9 +117,10 @@
                   <td>{{ $data->nis_siswa }}</td>
                   <td>{{ $data->created_at }}</td>
                   <td>{{$data->Jurusan->nama_jurusan}} | {{ $data->Kelaz->nama_kelas }}</td>
-                  <td> NULL</td>
-                  <td>NULL</td>
+                  <td> {{$data->Verifikasi->Verifikasi}}</td>
+                  <td>{{$data->Status->Status}}</td>
                   <td class="text-right">
+                    <button class="btn btn-secondary btn-sm">Nonaktif</button>
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
                     <form action="{{route('siswa.destroy',$data->id)}}" method="POST" class="d-inline">
                       @csrf
@@ -120,25 +141,24 @@
                       </div>
                       <div class="modal-body text-white" style="background-color: #ffa200;">
                         <!--FORM UPDATE BARANG-->
-                        <form action="#" method="post">
+                        <form action="{{route('siswa.update',$data->id)}}" method="post">
                           @csrf
                           @method('put')
                           <div class="form-group">
                             <label for="nama">Nama Pengguna</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama_siswa}}">
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama_siswa}}" name="updatenamasiswa">
                           </div>
                           <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email_siswa}}">
+                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email_siswa}}" name="updateemailsiswa">
                           </div>
                           <div class="form-group">
                             <label for="ktp">NIS</label>
-                            <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa" value="{{ $data->nis_siswa}}">
+                            <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa" value="{{ $data->nis_siswa}}" name="updatenissiswa">
                           </div>
                           <div class="form-group">
                             <label for="ktp">Kelas</label>
-                            <select class="form-control" name="kelas_siswa">
-                              <option disabled selected>Masukkan Kelas</option>
+                            <select class="form-control" name="updatekelassiswa" value="">
                               @foreach ($kelas as $row)
                               <option value="{{$row->id}}">
                                 {{$row->nama_kelas}}
@@ -147,19 +167,14 @@
                             </select>
                           </div>
                           <div class="form-group">
-                        <label for="ktp">Kelas</label>
-                        <select class="form-control" name="jurusan_siswa">
-                          <option disabled selected>Masukkan Jurusan</option>
-                          @foreach ($jurusan as $row)
-                          <option value="{{$row->id}}">
-                            {{$row->nama_jurusan}}
-                          </option>
-                          @endforeach
-                        </select>
-                      </div>
-                          <div class="form-group">
-                            <!-- <label for="ktp">Password</label> -->
-                            <input type="hidden" class="form-control" id="password" placeholder="Confirm Password">
+                            <label for="ktp">Kelas</label>
+                            <select class="form-control" name="updatejurusansiswa">
+                              @foreach ($jurusan as $row)
+                              <option value="{{$row->id}}">
+                                {{$row->nama_jurusan}}
+                              </option>
+                              @endforeach
+                            </select>
                           </div>
                       </div>
                       <button type="submit" class="btn btn-primary">Perbarui Data</button>

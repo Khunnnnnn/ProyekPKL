@@ -18,4 +18,12 @@ class siswa extends Model
     {
         return $this->belongsTo(Jurusan::class,'id_jurusan');
     }
+    public function Verifikasi()
+    {
+        return $this->belongsTo(Verifikasi::class,'id_verifikasi');
+    }
+    public function Status()
+    {
+        return $this->belongsTo(Status::class,'id_status');
+    }
 }
