@@ -27,23 +27,29 @@
                         </div>
 
                         <div class="ml-auto text-bold">
-                          <p>2</p>
+                          <p>3</p>
                         </div>
                       </div>
 
                       <div class="ml-2" style=" height: 750px; width: 250px; overflow-y: auto;">
-                        <div>
-                          <label class="ml-3 mt-2">
-                            <i class="fas fa-book mr-2"></i> Soal 1
-                          </label>
-                          <p class="badge badge-info ml-5">
-                            <i class="fas fa-edit"></i>
-                          </p>
+                        @if ($kuiz->count())
+                          @foreach ($kuiz as $item)
+                            <div>
+                              <label class="ml-3 mt-2">
+                                <i class="fas fa-book mr-2"></i> Soal {{ $loop->iteration }}
+                              </label>
+                              <p class="badge badge-info ml-5">
+                                <i class="fas fa-edit"></i>
+                              </p>
 
-                          <p class="badge badge-danger">
-                            <i class="fas fa-trash-alt"></i>
-                          </p>
-                        </div>
+                              <p class="badge badge-danger">
+                                <i class="fas fa-trash-alt"></i>
+                              </p>
+                            </div>
+                          @endforeach
+                        @else
+                          <p class="mt-3 text-center text-bold">Tidak ada soal</p>
+                        @endif
                       </div>
                     </div>
 
@@ -96,16 +102,26 @@
                           </div>
                           <textarea name="soal" class="form-control" rows="5"></textarea>
                         </div>
+{{-- 
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Button</button>
+                          </div>
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
+                          </div>
+                        </div> --}}
 
                         <div class="d-flex mt-2">
                           <div class="p-2 flex-fill">
                             <label> Video</label>
                             <div class="input-group-prepend">
-                              <a href="#">
-                                <div class="input-group-text">Pilih</div>
-                              </a>
-                              <input type="text" class="form-control" placeholder="belum ada yang di pilih">
                               <button type="button" class="btn btn-danger">Reset</button>
+                            </div>
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
+                              <label class="custom-file-label" for="inputGroupFile03">Belum ada yang dipilih</label>
                             </div>
                           </div>
 
@@ -183,6 +199,6 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-</section>
-<!-- /.content -->
+  </section>
+  <!-- /.content -->
 @endsection

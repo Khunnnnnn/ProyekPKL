@@ -36,6 +36,7 @@ class KuizController extends Controller
             'smallTitle' => " - Kuis",
             'headTitle' => "Kuis",
             'kategori_kuiz' => KategoriKuiz::all(),
+            'kuiz' => Kuiz::all()
             // 'kelas' => Kuizs::all()
         ]);
     }
