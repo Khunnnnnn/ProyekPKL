@@ -102,37 +102,31 @@
                           </div>
                           <textarea name="soal" class="form-control" rows="5"></textarea>
                         </div>
-{{-- 
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon03">Button</button>
-                          </div>
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-                            <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
-                          </div>
-                        </div> --}}
 
                         <div class="d-flex mt-2">
                           <div class="p-2 flex-fill">
                             <label> Video</label>
-                            <div class="input-group-prepend">
-                              <button type="button" class="btn btn-danger">Reset</button>
-                            </div>
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03">
-                              <label class="custom-file-label" for="inputGroupFile03">Belum ada yang dipilih</label>
+                           <div class="input-group">
+                              <div class="input-group-prepend">
+                                <button class="btn btn-danger">Reset</button>
+                              </div>
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Belum ada yang dipilih</label>
+                              </div>
                             </div>
                           </div>
 
                           <div class="p-2 flex-fill">
                             <label>Gambar</label>
-                            <div class="input-group-prepend">
-                              <a href="#">
-                                <div class="input-group-text">Pilih</div>
-                              </a>
-                              <input type="text" class="form-control" placeholder="belum ada yang di pilih">
-                              <button type="button" class="btn btn-danger">Reset</button>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <button class="btn btn-danger">Reset</button>
+                              </div>
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                <label class="custom-file-label" for="inputGroupFile01">Belum ada yang dipilih</label>
+                              </div>
                             </div>
                           </div>
                         </div>
