@@ -120,7 +120,11 @@
                   <td> {{$data->Verifikasi->Verifikasi}}</td>
                   <td>{{$data->Status->Status}}</td>
                   <td class="text-right">
+                    <form action="{{ url('post/update', $data->id ) }}" class="d-inline" method="POST">
+                    @csrf
+                    @method('put')
                     <button class="btn btn-secondary btn-sm">Nonaktif</button>
+                    </form>
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
                     <form action="{{route('siswa.destroy',$data->id)}}" method="POST" class="d-inline">
                       @csrf
@@ -198,6 +202,8 @@
   <!-- /.row -->
   </div>
   <!-- /.container-fluid -->
+  
 </section>
+
 <!-- /.content -->
 @endsection

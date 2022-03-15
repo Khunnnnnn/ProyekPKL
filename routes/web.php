@@ -37,6 +37,9 @@ Route::get('/laporan', function () {
     return view('layouts.laporan');
 });
 
+// Update Status Siswa
+Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
+
 Route::resource('/kuis', KuizController::class);
 Route::resource('/admin-quiz', AdminController::class);
 Route::resource('/kelas', KelasController::class);

@@ -140,4 +140,12 @@ class SiswaController extends Controller
         alert()->success('Post Deleted', 'Successfully')->toToast();
         return redirect()->route('siswa.index');
     }
+    public function updatestatus(Request $request, $id)
+    {
+        $update_siswa= siswa::find($id);
+        $update_siswa->id_status = 2;
+        $update_siswa->update();
+        alert()->success('Status Diubah', 'Successfully')->toToast();
+        return redirect()->route('siswa.index');
+    }
 }
