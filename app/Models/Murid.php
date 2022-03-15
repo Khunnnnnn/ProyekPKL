@@ -8,8 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-
-class Admin extends Authenticatable
+class Murid extends Authenticatable
 {
     use HasFactory, Notifiable;
 
@@ -19,6 +18,6 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $table = 'admins';
+    protected $table = 'murids';
     protected $primaryKey='id';
 }

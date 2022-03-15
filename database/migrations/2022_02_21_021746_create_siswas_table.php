@@ -16,14 +16,16 @@ class CreateSiswasTable extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_siswa');
-            $table->string('email_siswa');
-            $table->integer('nis_siswa');
+            $table->string('level')->nullable();
+            $table->string('email_siswa')->unique();
+            $table->integer('nis_siswa')->nullable();
             $table->date('tanggal_daftar')->nullable();
-            $table->foreignId('id_kelas');
-            $table->foreignId('id_jurusan');
-            $table->foreignId('id_verifikasi');
-            $table->foreignId('id_status');
+            $table->foreignId('id_kelas')->nullable();;
+            $table->foreignId('id_jurusan')->nullable();;
+            $table->foreignId('id_verifikasi')->nullable();;
+            $table->foreignId('id_status')->nullable();;
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

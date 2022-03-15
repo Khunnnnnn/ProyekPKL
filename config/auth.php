@@ -50,7 +50,18 @@ return [
             'driver' => 'token',
             'provider' => 'users',
             'hash' => false,
-        ]
+        ],
+
+        'murid' => [
+            'driver' => 'session',
+            'provider' =>'murids',
+        ],
+
+        // 'user' => [
+        //     'driver' => 'session',
+        //     'provider' =>'siswas'
+        // ],
+
     ],
 
     /*
@@ -79,6 +90,11 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'murids' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Murid::class,
         ],
 
         // 'users' => [

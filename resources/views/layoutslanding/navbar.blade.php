@@ -19,7 +19,7 @@
                         <a class="nav-link active" href="#testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn active" href="#">Sign UP</a>
+                        <a class="nav-link btn active" href="{{route('logout')}}">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,11 +20,6 @@ use App\Http\Controllers\KategoriKuizController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// ROUTE DASHBOARD
-
-// Tampil Dashboard
-Route::get('/', [DashboardController::class, 'index']);
 
 // Route::get('/siswa', function () {
 //     return view('layouts.siswa');
@@ -47,11 +43,24 @@ Route::resource('/siswa', SiswaController::class);
 Route::resource('/guru', GuruController::class);
 Route::resource('/kategorikuis', KategoriKuizController::class);
 
-Route::get('/landing', function () {
-    return view('main');
+Route::get('/login', function () {
+    return view('layouts.login.login');
+})->name('login');
+// Controller Login
+Route::post('/postlogin', 'App\Http\Controllers\LoginController@postlogin')->name('postlogin');
+// Untuk Logout
+Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+
+
+// Check Table 
+Route::group(['middleware' => ['auth:admin']], function () {
+    // Tampil Dashboard
+    Route::get('/', [DashboardController::class, 'index']);
 });
-
-// Route::group(['middleware' => ['auth:admin']], function() {
-//     Route::get('/users', [UserController::class, 'users']);
-// });
-
+// Check Table 
+Route::group(['middleware' => ['auth:murid']], function () {
+    // Tampil Landing Page Siswa
+    Route::get('/landing', function () {
+        return view('main');
+    });
+});
