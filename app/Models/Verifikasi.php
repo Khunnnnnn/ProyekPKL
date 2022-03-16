@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Verifikasi extends Model
 {
     use HasFactory;
-    public function Siswa()
+    public function Murid()
     {
-        return $this->hasMany(siswa::class,'id_verifikasi');
+        return $this->hasMany(Murid::class,'id_verifikasi');
     }
 }

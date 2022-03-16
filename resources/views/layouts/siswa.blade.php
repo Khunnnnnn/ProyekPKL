@@ -112,8 +112,8 @@
                 @foreach ($siswa as $data)
                 <tr>
                   <td>{{ $loop->iteration }}</td>
-                  <td>{{ $data->nama_siswa   }}</td>
-                  <td>{{ $data->email_siswa }}</td>
+                  <td>{{ $data->nama   }}</td>
+                  <td>{{ $data->email }}</td>
                   <td>{{ $data->nis_siswa }}</td>
                   <td>{{ $data->created_at }}</td>
                   <td>{{$data->Jurusan->nama_jurusan}} | {{ $data->Kelaz->nama_kelas }}</td>

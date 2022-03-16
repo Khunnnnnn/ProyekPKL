@@ -11,7 +11,7 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-        <p class="text-white">Avatar <i class="fas fa-user-circle"></i></p>
+        <p class="text-white">Avatar | {{ ucfirst(Auth()->user()->nama) }} <i class="fas fa-user-circle"></i></p>
       </a>
     </li>
   </ul>

@@ -12,9 +12,9 @@ class Kelaz extends Model
         'nama_kelas'
     ];
 
-    public function Siswa()
+    public function Murid()
     {
-        return $this->hasMany(siswa::class,'id_kelas');
+        return $this->hasMany(Murid::class,'id_kelas');
     }
     
 }

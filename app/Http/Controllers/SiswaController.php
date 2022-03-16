@@ -9,6 +9,7 @@ use App\Models\Jurusan;
 use App\Models\Verifikasi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Murid;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -24,7 +25,7 @@ class SiswaController extends Controller
         //
         $kelas = Kelaz::all();
         $jurusan = Jurusan::all();
-        $siswa = siswa::all();
+        $siswa = Murid::all();
         $verif = Verifikasi::all();
         $status = Status::all();
         // dd($siswa);
@@ -69,9 +70,9 @@ class SiswaController extends Controller
         ]);
         // dd($request);
         // dd($request);
-        $siswa = new siswa;
-        $siswa->nama_siswa = $request->nama_siswa;
-        $siswa->email_siswa = $request->email_siswa;
+        $siswa = new Murid;
+        $siswa->nama = $request->nama_siswa;
+        $siswa->email = $request->email_siswa;
         $siswa->nis_siswa = $request->nis_siswa;
         $siswa->id_kelas = $request-> kelas_siswa;
         $siswa->id_jurusan = $request-> jurusan_siswa;
@@ -115,7 +116,7 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $update_siswa= siswa::find($id);
+        $update_siswa= Murid::find($id);
         $update_siswa->nama_siswa=$request->updatenamasiswa;
         $update_siswa->email_siswa=$request->updateemailsiswa;
         $update_siswa->nis_siswa=$request->updatenissiswa;
@@ -135,14 +136,14 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         //
-        $siswa = siswa::findOrFail($id);
+        $siswa = Murid::findOrFail($id);
         $siswa->delete();
         alert()->success('Post Deleted', 'Successfully')->toToast();
         return redirect()->route('siswa.index');
     }
     public function updatestatus(Request $request, $id)
     {
-        $update_siswa= siswa::find($id);
+        $update_siswa= Murid::find($id);
         $update_siswa->id_status = 2;
         $update_siswa->update();
         alert()->success('Status Diubah', 'Successfully')->toToast();

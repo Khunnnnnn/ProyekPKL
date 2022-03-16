@@ -9,8 +9,8 @@ class Jurusan extends Model
 {
     use HasFactory;
 
-    public function Siswaa()
+    public function Murid()
     {
-        return $this->hasMany(siswa::class,'id_jurusan');
+        return $this->hasMany(Murid::class,'id_jurusan');
     }
 }

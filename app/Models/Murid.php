@@ -20,4 +20,21 @@ class Murid extends Authenticatable
 
     protected $table = 'murids';
     protected $primaryKey='id';
+
+    public function Kelaz()
+    {
+        return $this->belongsTo(Kelaz::class,'id_kelas');
+    }
+    public function Jurusan()
+    {
+        return $this->belongsTo(Jurusan::class,'id_jurusan');
+    }
+    public function Verifikasi()
+    {
+        return $this->belongsTo(Verifikasi::class,'id_verifikasi');
+    }
+    public function Status()
+    {
+        return $this->belongsTo(Status::class,'id_status');
+    }
 }

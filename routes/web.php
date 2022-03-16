@@ -29,19 +29,7 @@ Route::get('/login', function () {
     return view('layouts.login.login');
 });
 
-Route::get('/laporan', function () {
-    return view('layouts.laporan');
-});
 
-// Update Status Siswa
-Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
-
-Route::resource('/kuis', KuizController::class);
-Route::resource('/admin-quiz', AdminController::class);
-Route::resource('/kelas', KelasController::class);
-Route::resource('/siswa', SiswaController::class);
-Route::resource('/guru', GuruController::class);
-Route::resource('/kategorikuis', KategoriKuizController::class);
 
 Route::get('/login', function () {
     return view('layouts.login.login');
@@ -56,6 +44,18 @@ Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logo
 Route::group(['middleware' => ['auth:admin']], function () {
     // Tampil Dashboard
     Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('/kuis', KuizController::class);
+    Route::resource('/admin-quiz', AdminController::class);
+    Route::resource('/kelas', KelasController::class);
+    Route::resource('/siswa', SiswaController::class);
+    Route::resource('/guru', GuruController::class);
+    Route::resource('/kategorikuis', KategoriKuizController::class);
+    Route::get('/laporan', function () {
+        return view('layouts.laporan');
+    });
+
+    // Update Status Siswa
+    Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
 });
 // Check Table 
 Route::group(['middleware' => ['auth:murid']], function () {
