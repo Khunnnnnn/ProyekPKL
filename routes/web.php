@@ -7,6 +7,7 @@ use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KategoriKuizController;
 
 
@@ -20,10 +21,6 @@ use App\Http\Controllers\KategoriKuizController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/siswa', function () {
-//     return view('layouts.siswa');
-// });
 
 Route::get('/login', function () {
     return view('layouts.login.login');
@@ -47,6 +44,7 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::resource('/kuis', KuizController::class);
     Route::resource('/admin-quiz', AdminController::class);
     Route::resource('/kelas', KelasController::class);
+    Route::resource('/jurusan', JurusanController::class);
     Route::resource('/siswa', SiswaController::class);
     Route::resource('/guru', GuruController::class);
     Route::resource('/kategorikuis', KategoriKuizController::class);
