@@ -55,7 +55,7 @@
                   <td>{{ $loop->iteration }}</td>
                   <td>{{ $data->nama_kelas }}</td>
                   <td class="text-right">
-                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
+                  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Edit</button>
                     <form action="{{ route('kelas.destroy', $data->id) }}" method="POST" class="d-inline">
                       @csrf
                       @method('DELETE')
@@ -64,33 +64,38 @@
 
                   </td>
                 </tr>
-                <!-- Modal Update Barang-->
-                <div class="modal fade" id="modalUpdateBarang{{ $data->id }}" tabindex="-1" aria-labelledby="modalUpdateBarang" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Update Barang</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <!--FORM UPDATE BARANG-->
-                        <form action="{{route('kelas.update',$data->id)}}" method="post">
-                          @csrf
-                          @method('put')
-                          <div class="form-group">
-                            <label for="">Nama Kelas</label>
-                            <input type="text" class="form-control" id="updateNamaKelas" name="updateNamaKelas" value="{{ $data->nama_kelas}}">
+                    <!-- Modal Update Barang-->
+                    <div class="modal fade" id="modalUpdateBarang{{ $data->id }}" tabindex="-1" aria-labelledby="modalUpdateBarang" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content bg-warning">
+                          <div class="modal-header text-white" style="background-color: #ea9f1c; border:none !important;">
+                            <h5 class="modal-title">Edit Jurusan</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
                           </div>
-                          <button type="submit" class="btn btn-primary">Perbarui Data</button>
-                        </form>
-                        <!--END FORM UPDATE BARANG-->
+
+                          <div class="modal-body text-white" style="background-color: #ffa200;">
+                            <!--FORM UPDATE BARANG-->
+                            <form action="{{ route('kelas.update', $data->id) }}" method="post">
+                              @csrf
+                              @method('put')
+                              <div class="form-group">
+                                <label for="updateNamaKelas">Nama Kelas</label>
+                                <input type="text" class="form-control" id="updateNamaKelas" name="updateNamaKelas" value="{{ $data->nama_kelas }}">
+                              </div>
+                              <!--END FORM UPDATE BARANG-->
+                          </div>
+
+                          <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
+                            <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal" id="close-btn">Batalkan</button>
+                            <button type="submit" class="btn btn-success">Selesai</button>
+                          </div>
+                          </form>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <!-- End Modal UPDATE Barang-->
+                    <!-- End Modal UPDATE Barang-->
                 @endforeach
               </tbody>
             </table>
