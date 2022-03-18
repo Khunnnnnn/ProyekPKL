@@ -8,6 +8,9 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
+              <a href="">
+                <button type="button" class="btn btn-info">Export</button>
+              </a>
                 <div class="mt-4">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
