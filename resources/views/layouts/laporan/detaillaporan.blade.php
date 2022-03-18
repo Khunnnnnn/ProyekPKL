@@ -37,7 +37,9 @@
                                 <td>70</td>
                                 <td>120 menit</td>
                                 <td>
-                                    <button type="button" class="btn btn-info btn-sm">Detail</button>
+                                  <a href="/detailjawaban">
+                                  <button type="button" class="btn btn-info btn-sm">Detail</button>
+                                  </a>
                                 </td>
                             </tr>
                         </tbody>
