@@ -10,6 +10,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
+use App\Http\Controllers\LaporanController;
 
 
 /*
@@ -50,9 +51,12 @@ Route::group(['middleware' => ['auth:admin']], function () {
     // Update Status Siswa
     Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
     Route::resource('/kategorikuis', KategoriKuizController::class);
-    Route::get('/laporan', function () {
-        return view('layouts.laporan');
-    });
+    // Route::get('/laporan', function () {
+    //     return view('layouts.laporan.datalaporan');
+    // });
+    Route::get('/laporan', [LaporanController::class, 'index']);
+    Route::get('/detail', [LaporanController::class, 'detail']);
+    Route::get('/detailjawaban', [LaporanController::class, 'detailjawaban']);
 
     
 });
