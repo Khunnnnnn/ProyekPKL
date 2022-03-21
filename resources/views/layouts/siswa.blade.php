@@ -21,23 +21,38 @@
                     </button>
                   </div>
                   <div class="modal-body text-white" style="background-color: #ffa200;">
-                    <form action="{{route('siswa.store')}}" method="POST">
+                    <form action="{{route('siswa.store')}}" method="POST" novalidate>
                       @csrf
                       <div class="form-group">
                         <label for="nama">Nama Pengguna</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" name="nama_siswa">
+                        <input type="text" class="form-control @error('nama_siswa') is-invalid @enderror" id="nama" placeholder="Nama Pengguna" name="nama_siswa">
+                        @error('nama_siswa')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email" name="email_siswa">
+                        <input type="email" class="form-control  @error('email_siswa') is-invalid @enderror" id="email" placeholder="Email" name="email_siswa">
+                        @error('email_siswa')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">NIS</label>
-                        <input type="number" class="form-control" id="ktp" placeholder="Nomor Induk Siswa" name="nis_siswa">
+                        <input type="number" class="form-control  @error('nis_siswa') is-invalid @enderror" id="ktp" placeholder="Nomor Induk Siswa" name="nis_siswa">
+                        @error('nis_siswa')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">Kelas</label>
-                        <select class="form-control" name="kelas_siswa">
+                        <select class="form-control  @error('kelas_siswa') is-invalid @enderror" name="kelas_siswa">
                           <option disabled selected>Masukkan Kelas</option>
                           @foreach ($kelas as $row)
                           <option value="{{$row->id}}">
@@ -45,10 +60,15 @@
                           </option>
                           @endforeach
                         </select>
+                        @error('kelas_siswa')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">Kelas</label>
-                        <select class="form-control" name="jurusan_siswa">
+                        <select class="form-control  @error('jurusan_siswa') is-invalid @enderror" name="jurusan_siswa">
                           <option disabled selected>Masukkan Jurusan</option>
                           @foreach ($jurusan as $row)
                           <option value="{{$row->id}}">
@@ -56,10 +76,15 @@
                           </option>
                           @endforeach
                         </select>
+                        @error('jurusan_siswa')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">Verifikasi</label>
-                        <select class="form-control" name="verifikasi">
+                        <select class="form-control  @error('verifikasi') is-invalid @enderror" name="verifikasi">
                           <option disabled selected>Pilihan</option>
                           @foreach ($verif as $row)
                           <option value="{{$row->id}}">
@@ -67,10 +92,15 @@
                           </option>
                           @endforeach
                         </select>
+                        @error('verifikasi')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">Status</label>
-                        <select class="form-control" name="status">
+                        <select class="form-control  @error('status') is-invalid @enderror" name="status">
                           <option disabled selected>Pilihan</option>
                           @foreach ($status as $row)
                           <option value="{{$row->id}}">
@@ -78,12 +108,17 @@
                           </option>
                           @endforeach
                         </select>
+                        @error('status')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                       </div>
                       <div class="form-group">
                         <label for="ktp">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Confirm Password" name="pass_siswa">
+                        <input type="password" class="form-control  @error('name') is-invalid @enderror" id="password" placeholder="Confirm Password" name="pass_siswa">
                       </div>
-
+                    
                   </div>
                   <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
                     <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
@@ -121,9 +156,9 @@
                   <td>{{$data->Status->Status}}</td>
                   <td class="text-right">
                     <form action="{{ url('post/update', $data->id ) }}" class="d-inline" method="POST">
-                    @csrf
-                    @method('put')
-                    <button class="btn btn-secondary btn-sm">Nonaktif</button>
+                      @csrf
+                      @method('put')
+                      <button class="btn btn-secondary btn-sm">Nonaktif</button>
                     </form>
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
                     <form action="{{route('siswa.destroy',$data->id)}}" method="POST" class="d-inline">
@@ -202,7 +237,7 @@
   <!-- /.row -->
   </div>
   <!-- /.container-fluid -->
-  
+
 </section>
 
 <!-- /.content -->

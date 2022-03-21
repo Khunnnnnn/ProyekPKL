@@ -21,8 +21,20 @@
     <div class="login-logo">
       <a href="#"><b>App</b>Quiz</a>
     </div>
+
+    @if (session('success'))
+    <div class="col-sm-12">
+      <div class="alert  alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    @endif
     <!-- /.login-logo -->
     <div class="card">
+
       <div class="card-body login-card-body">
         <p class="login-box-msg">Login untuk melanjutkan</p>
 
@@ -30,6 +42,9 @@
           {{csrf_field()}}
           <div class="input-group mb-3">
             <input type="email" class="form-control" placeholder="Email" name="email">
+            @if ($errors->has('email'))
+            <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -38,6 +53,9 @@
           </div>
           <div class="input-group mb-3">
             <input type="password" class="form-control" placeholder="Password" name="password">
+            @if ($errors->has('password'))
+            <span class="text-danger">{{ $errors->first('password') }}</span>
+            @endif
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -46,6 +64,9 @@
           </div>
           <div class="row">
             <!-- /.col -->
+            <div class="col-4">
+              <a class="btn btn-secondary" href="{{ route('register-user') }}">Register</a>
+            </div>
             <div class="col-4 ml-auto">
               <button type="submit" class="btn btn-primary btn-block">Sign In</button>
             </div>
