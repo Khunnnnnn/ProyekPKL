@@ -24,9 +24,8 @@ use App\Http\Controllers\LaporanController;
 |
 */
 
-
-Route::get('/login', function () {
-    return view('layouts.login.login');
+Route::get('/loginbaru', function () {
+    return view('layouts.login.loginbaru');
 })->name('login');
 
 // Controller Login

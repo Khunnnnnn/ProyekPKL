@@ -30,7 +30,7 @@ class LoginController extends Controller
             return redirect('/');
         }
         Alert::error('Gagal Login', 'Isi Field Terlebih Dahulu');
-        return redirect('/login');
+        return redirect('/loginbaru');
     }
 
     public function logout(Request $request)
@@ -41,7 +41,7 @@ class LoginController extends Controller
         } elseif (Auth::guard('murid')->check()) {
             Auth::guard('murid')->logout();
         }
-        return redirect('/login');
+        return redirect('/loginbaru');
     }
     public function registration()
     {
@@ -72,7 +72,7 @@ class LoginController extends Controller
             $admin->password = Hash::make($request->password);
             $admin->level = $request->level;
             $admin->save();
-            return redirect("/login")->withSuccess('Berhasil Daftar Sebagai Admin');
+            return redirect("/loginbaru")->withSuccess('Berhasil Daftar Sebagai Admin');
         } elseif ($siswa->level = $request->level == 1) {
             // dd($siswa); Untuk Mengecheck Input
             $siswa->nama = $request->name;
@@ -80,17 +80,17 @@ class LoginController extends Controller
             $siswa->password = Hash::make($request->password);
             $siswa->level = $request->level;
             $siswa->save();
-            return redirect("/login")->withSuccess('Berhasil Daftar Sebagai Siswa');
+            return redirect("/loginbaru")->withSuccess('Berhasil Daftar Sebagai Siswa');
         } elseif ($guru->level = $request->level == 3) {
             $guru->nama = $request->name;
             $guru->email = $request->email;
             $guru->password = Hash::make($request->password);
             $guru->level = $request->level;
             $guru->save();
-            return redirect("/login")->withSuccess('Berhasil Daftar Sebagai Guru');
+            return redirect("/loginbaru")->withSuccess('Berhasil Daftar Sebagai Guru');
         } elseif($guru||$siswa||$admin = Null) {
             Alert::error('Error Title', 'Gagal Menambahkan');
-            return redirect("/login");
+            return redirect("/loginbaru");
         }
     }
 }
