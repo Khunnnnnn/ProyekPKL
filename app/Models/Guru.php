@@ -18,6 +18,6 @@ class Guru extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $table = 'admins';
+    protected $table = 'gurus';
     protected $primaryKey='id';
 }
