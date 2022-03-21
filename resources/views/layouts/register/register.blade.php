@@ -25,9 +25,17 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Login untuk melanjutkan</p>
-
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
                 <form action="{{route('register.custom')}}" method="POST" novalidate>
-                @csrf
+                    @csrf
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Name" name="name">
                         <div class="input-group-append">
