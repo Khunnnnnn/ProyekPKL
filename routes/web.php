@@ -67,3 +67,14 @@ Route::group(['middleware' => ['auth:murid']], function () {
         return view('main');
     });
 });
+// Check Table
+Route::group(['middleware' => ['auth:guru']], function () {
+    // Tampil Landing Page Siswa
+    Route::resource('/kelas', KelasController::class);
+    Route::resource('/jurusan', JurusanController::class);
+    Route::resource('/siswa', SiswaController::class);
+    Route::resource('/kategorikuis', KategoriKuizController::class);
+    Route::get('/detail', [LaporanController::class, 'detail']);
+    Route::get('/detailjawaban', [LaporanController::class, 'detailjawaban']);
+    Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
+});

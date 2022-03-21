@@ -8,6 +8,7 @@ use App\Models\Level;
 use App\Models\Murid;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Guru;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,8 @@ class LoginController extends Controller
             return redirect('/');
         } elseif (Auth::guard('murid')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect('/landing');
+        }elseif(Auth::guard('guru')->attempt(['email' => $request->email, 'password' => $request->password])){
+            return redirect('/');
         }
         return redirect('/login');
     }
@@ -58,6 +61,7 @@ class LoginController extends Controller
         // Deklarasi Tabel
         $admin = new Admin;
         $siswa = new Murid;
+        $guru = new Guru;
         // Pengkondisian Jika Daftar Sebagai Admin atau Siswa
         if($admin->level= $request->level == 2){
             // dd($admin); | Untuk Mengecheck Input
@@ -75,6 +79,13 @@ class LoginController extends Controller
             $siswa->level = $request->level;
             $siswa->save();
             return redirect("/login")->withSuccess('Berhasil Daftar Sebagai Siswa');
+        }elseif($guru->level= $request->level == 3){
+            $guru->nama = $request->name;
+            $guru->email = $request->email;
+            $guru->password = Hash::make($request->password);
+            $guru->level = $request->level;
+            $guru->save();
+            return redirect("/login")->withSuccess('Berhasil Daftar Sebagai Guru');
         }
         Alert::error('Error Title', 'Gagal Menambahkan');
         return redirect("/login");

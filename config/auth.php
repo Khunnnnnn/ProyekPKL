@@ -57,6 +57,11 @@ return [
             'provider' =>'murids',
         ],
 
+        'guru' => [
+            'driver' => 'session',
+            'provider' =>'gurus',
+        ],
+
         // 'user' => [
         //     'driver' => 'session',
         //     'provider' =>'siswas'
@@ -95,6 +100,11 @@ return [
         'murids' => [
             'driver' => 'eloquent',
             'model' => App\Models\Murid::class,
+        ],
+
+        'gurus' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Guru::class,
         ],
 
         // 'users' => [
