@@ -28,13 +28,21 @@ Route::get('/loginbaru', function () {
     return view('layouts.login.loginbaru');
 })->name('login');
 
+Route::get('/Login-Admin', [LoginController::class, 'adminLogin'])->name('Login-Admin');
+Route::get('/Register-Siswa', [LoginController::class, 'muridRegis'])->name('Register-Siswa');
+
 // Controller Login
-Route::post('/postlogin', 'App\Http\Controllers\LoginController@postlogin')->name('postlogin');
+Route::post('/postloginAdmin', [LoginController::class, 'postloginAdmin'])->name('postloginAdmin'); 
+
+Route::post('/postloginMurid', [LoginController::class, 'postloginMurid'])->name('postloginMurid'); 
+
 // Untuk Logout
-Route::get('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+Route::get('/logoutAdmin', [LoginController::class, 'logoutAdmin'])->name('logoutAdmin'); 
+Route::get('/logoutMurid', [LoginController::class, 'logoutMurid'])->name('logoutMurid'); 
 // Registration
 Route::get('/register', [LoginController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [LoginController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('customregisMurid', [LoginController::class, 'customregisMurid'])->name('customregisMurid'); 
 
 
 // Check Table 
@@ -67,13 +75,13 @@ Route::group(['middleware' => ['auth:murid']], function () {
     });
 });
 // Check Table
-Route::group(['middleware' => ['auth:guru']], function () {
-    // Tampil Landing Page Siswa
-    Route::resource('/kelas', KelasController::class);
-    Route::resource('/jurusan', JurusanController::class);
-    Route::resource('/siswa', SiswaController::class);
-    Route::resource('/kategorikuis', KategoriKuizController::class);
-    Route::get('/detail', [LaporanController::class, 'detail']);
-    Route::get('/detailjawaban', [LaporanController::class, 'detailjawaban']);
-    Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
-});
+// Route::group(['middleware' => ['auth:guru']], function () {
+//     // Tampil Landing Page Siswa
+//     Route::resource('/kelas', KelasController::class);
+//     Route::resource('/jurusan', JurusanController::class);
+//     Route::resource('/siswa', SiswaController::class);
+//     Route::resource('/kategorikuis', KategoriKuizController::class);
+//     Route::get('/detail', [LaporanController::class, 'detail']);
+//     Route::get('/detailjawaban', [LaporanController::class, 'detailjawaban']);
+//     Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
+// });
