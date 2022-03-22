@@ -48,7 +48,7 @@ class JurusanController extends Controller
         $jurusan = new Jurusan;
         $jurusan->nama_jurusan = $request->namajurusan;
         $jurusan->save();
-        Alert::success('Congrats', 'You\'ve Successfully Registered');
+        Alert::success('Sukses', 'Data Berhasil Ditambahkan');
         return redirect()->route('jurusan.index')->with(compact('jurusan'));
     }
 
@@ -83,10 +83,10 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update_jurusan= Jurusan::find($id);
-        $update_jurusan->nama_jurusan=$request->updateNamaJurusan;
+        $update_jurusan = Jurusan::find($id);
+        $update_jurusan->nama_jurusan = $request->updateNamaJurusan;
         $update_jurusan->save();
-        Alert::success('Congrats', 'Data Berhasil Diubah');
+        Alert::success('Sukses', 'Data Berhasil Diubah');
         return redirect()->route('jurusan.index');
     }
 
@@ -100,14 +100,13 @@ class JurusanController extends Controller
     {
         $jurusan = Jurusan::findOrFail($id);
         $jurusan->delete();
-        alert()->success('Post Deleted', 'Successfully')->toToast();
+        alert()->success('Sukses', 'Data telah terhapus')->toToast();
         if ($jurusan) {
             return redirect()
                 ->route('jurusan.index')
                 ->with([
                     'success' => 'jurusan has been deleted successfully'
                 ]);
-               
         } else {
             return redirect()
                 ->route('jurusan.index')

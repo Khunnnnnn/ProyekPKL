@@ -50,9 +50,8 @@ class KelasController extends Controller
         $kelas = new Kelaz;
         $kelas->nama_kelas = $request->namakelas;
         $kelas->save();
-        Alert::success('Congrats', 'You\'ve Successfully Registered');
+        Alert::success('Sukses', 'Data Berhasil Ditambahkan');
         return redirect()->route('kelas.index')->with(compact('kelas'));
-       
     }
 
     /**
@@ -87,12 +86,11 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $update_kelas= Kelaz::find($id);
-        $update_kelas->nama_kelas=$request->updateNamaKelas;
+        $update_kelas = Kelaz::find($id);
+        $update_kelas->nama_kelas = $request->updateNamaKelas;
         $update_kelas->save();
-        Alert::success('Congrats', 'Data Berhasil Diubah');
+        Alert::success('Sukses', 'Data Berhasil Diubah');
         return redirect()->route('kelas.index');
-
     }
 
     /**
@@ -106,14 +104,13 @@ class KelasController extends Controller
         //
         $kelas = Kelaz::findOrFail($id);
         $kelas->delete();
-        alert()->success('Post Deleted', 'Successfully')->toToast();
+        alert()->success('Sukses', 'Data telah terhapus')->toToast();
         if ($kelas) {
             return redirect()
                 ->route('kelas.index')
                 ->with([
                     'success' => 'kelas has been deleted successfully'
                 ]);
-               
         } else {
             return redirect()
                 ->route('kelas.index')
