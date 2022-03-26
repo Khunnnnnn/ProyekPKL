@@ -15,7 +15,7 @@
 </head>
 
 <body>
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
     <section class="ftco-section">
         <div class="container">
             @if (session('success'))
@@ -31,12 +31,12 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="d-md-flex">
-                        <div class="img" style="background-image: url(/login/image/bg-1.png); ">
+                        <div class="img" style="background-image: url(/login/image/bg-2.png); ">
                         </div>
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
                                 <div class="w-100">
-                                    <h3 class="mb-4">Sign In</h3>
+                                    <h3 class="mb-4">Sign Up</h3>
                                 </div>
                                 <div class="w-100">
                                     <p class="social-media d-flex justify-content-end">
@@ -45,8 +45,16 @@
                                     </p>
                                 </div>
                             </div>
-                            <form action="{{route('postloginMurid')}}" method="POST" class="signin-form">
+                            <form action="{{route('customregisMurid')}}" method="POST" class="signin-form" novalidate>
                                 {{csrf_field()}}
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">Nama</label>
+                                    <input type="text" class="form-control" placeholder="Nama" name="nama" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">NIS</label>
+                                    <input type="number" class="form-control" placeholder="NIS" name="nis" required>
+                                </div>
                                 <div class="form-group mb-3">
                                     <label class="label" for="name">Email</label>
                                     <input type="text" class="form-control" placeholder="Email" name="email" required>
@@ -56,14 +64,43 @@
                                     <input type="password" class="form-control" placeholder="Password" name="password" required>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                    <label for="level">Pilih Jurusan</label>
+                                    <select class="form-control" name="jurusan">
+                                        @foreach ($jurusan as $row)
+                                        <option value="{{$row->id}}">
+                                            {{$row->nama_jurusan}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="w-50 text-md-right">
-                                    <a href="#">Forgot Password</a>
+                                <div class="form-group">
+                                    <label for="level">Pilih Kelas</label>
+                                    <select class="form-control" name="kelas">
+                                        @foreach ($kelas as $row)
+                                        <option value="{{$row->id}}">
+                                            {{$row->nama_kelas}}
+                                        </option>
+                                        @endforeach
+                                    </select>
                                 </div>
+                                <div class="form-group">
+                                    <label for="level">Sebagai</label>
+                                    <select class="form-control" name="level">
+                                        @foreach ($level as $row)
+                                        @if($row->level == 'Siswa')
+                                        <option value="{{$row->id}}">
+                                            {{$row->level}}
+                                        </option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
+                                </div>
+
                         </div>
                         </form>
-                        <p class="text-center">Not a member? <a data-toggle="tab" href="{{ route('Register-Siswa') }}">Sign Up</a></p>
                     </div>
                 </div>
             </div>

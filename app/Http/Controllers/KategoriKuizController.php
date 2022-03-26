@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KategoriKuiz;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KategoriKuizController extends Controller
 {
@@ -40,11 +41,15 @@ class KategoriKuizController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama_kategori' => 'required|max:100',
+        $request->validate([
+            'namakategori' => 'required'
         ]);
 
-        KategoriKuiz::create($validatedData);
+        $kategorikuis = new KategoriKuiz;
+        $kategorikuis->nama_kategori = $request->namakategori;
+        $kategorikuis->save();
+        Alert::success('Sukses', 'Data Berhasil Ditambahkan');
+        return redirect()->route('kategorikuis.index')->with(compact('kategorikuis'));
     }
 
     /**
@@ -78,7 +83,11 @@ class KategoriKuizController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $update_kategori = KategoriKuiz::find($id);
+        $update_kategori->nama_kategori = $request->updateNamaKategori;
+        $update_kategori->save();
+        Alert::success('Sukses', 'Data Berhasil Diubah');
+        return redirect()->route('kategorikuis.index');
     }
 
     /**
@@ -89,6 +98,21 @@ class KategoriKuizController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategorikuis = KategoriKuiz::findOrFail($id);
+        $kategorikuis->delete();
+        alert()->success('Sukses', 'Data telah terhapus')->toToast();
+        if ($kategorikuis) {
+            return redirect()
+                ->route('kategorikuis.index')
+                ->with([
+                    'success' => 'kategori has been deleted successfully'
+                ]);
+        } else {
+            return redirect()
+                ->route('kategorikuis.index')
+                ->with([
+                    'error' => 'Some problem has occurred, please try again'
+                ]);
+        }
     }
 }

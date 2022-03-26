@@ -21,42 +21,27 @@
         <div class="login-logo">
             <a href="#"><b>App</b>Quiz</a>
         </div>
+        @if (session('success'))
+            <div class="col-sm-12">
+                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            @endif
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Login untuk melanjutkan</p>
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-                <form action="{{route('register.custom')}}" method="POST" novalidate>
+                <form action="{{route('postloginAdmin')}}" method="POST" novalidate>
                     @csrf
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Name" name="name">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email" name="email">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="number" class="form-control" placeholder="Nomor KTP" name="ktp">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-address-card"></span>
                             </div>
                         </div>
                     </div>
@@ -68,22 +53,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="level">Sebagai</label>
-                        <select class="form-control" name="level">
-                            @foreach ($level as $row)
-                            @if($row->level == 'Admin' or $row->level == 'Guru')
-                            <option value="{{$row->id}}">
-                                {{$row->level}}
-                            </option>
-                            @endif
-                            @endforeach
-                        </select>
-                    </div>
                     <div class="row">
                         <!-- /.col -->
+                        
+                        <div class="col-4">
+                        <a class="btn btn-secondary"  href="{{route('register-user')}}">Sign Up</a>
+                        </div>
                         <div class="col-4 ml-auto">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>

@@ -11,6 +11,7 @@
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
               Tambah
             </button>
+            
             <!-- Tambah Data -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
@@ -38,9 +39,7 @@
                 </div>
               </div>
             </div>
-            <!-- Penutup -->
-            <!-- Edit Data -->
-            <!-- Penutup -->
+
             <table id="datatables" class="table table-bordered table-striped table-sm" style="font-size: 15px;">
               <thead>
                 <tr>
