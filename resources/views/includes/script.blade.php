@@ -38,3 +38,24 @@
 } );
     });
   </script>
+
+<script>
+    $(function(){
+        $('.btn-ubah').on('click',function(){
+            // $('.modal-footer button[type=submit]');
+            const id = $(this).data('id');
+            const nama = $(this).data('nama');
+            const email = $(this).data('email');
+            const ktp = $(this).data('ktp');
+            const dokumen = $(this).data('dokumen');
+            const act='/admin-quiz';
+            $('#formEdit').attr('action',act+"/"+id);
+            console.log($('#formEdit').attr('action'));
+            
+            $('#namaEdit').val(nama);
+            $('#emailEdit').val(email);
+            $('#ktpEdit').val(ktp);
+            
+        })
+    });
+</script>

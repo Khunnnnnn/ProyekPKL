@@ -12,4 +12,11 @@ class Status extends Model
     {
         return $this->hasMany(Murid::class,'id_status');
     }
+
+    public function Admin()
+    {
+        return $this->hasMany(Admin::class,'id_status');
+    }
+
+   
 }

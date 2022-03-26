@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Verifikasi;
+use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,7 +21,9 @@ class AdminController extends Controller
             'title' => "Admin Quiz",
             'smallTitle' => " - Admin",
             'headTitle' => "Admin",
-            'admins' => Admin::all()
+            'admins' => Admin::all(),
+            'verifikasi' => Verifikasi::all(),
+            'status' => Status::all(),
         ]);
     }
 
@@ -46,6 +50,7 @@ class AdminController extends Controller
             'email' => 'required|email:dns|unique:admins|max:100',
             'ktp' => 'required|max:20',
             'password' => 'required|min:5|max:100',
+            'aktif' => 'required|max:15',
         ]);
 
         // $aktif = 'Aktif';
@@ -99,5 +104,29 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updateStatus(Request $request, $id){
+
+        $statusSekarang= Admin::find($id);        
+        if($statusSekarang -> id_status == 1){
+            $statusSekarang->id_status = 2;
+            $statusSekarang->update();
+        }
+        alert()->success('Status Diubah', 'Successfully')->toToast();
+
+        return redirect()->route('admin-quiz.index');
+    }
+
+    public function updateStatusAktif($id){
+
+        $statusSekarang= Admin::find($id);
+        if($statusSekarang -> id_status == 2){
+            $statusSekarang->id_status = 1;
+            $statusSekarang->update();
+        }
+        alert()->success('Status Diubah', 'Successfully')->toToast();
+
+        return redirect()->route('admin-quiz.index'); 
     }
 }

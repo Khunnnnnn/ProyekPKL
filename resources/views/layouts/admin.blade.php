@@ -62,7 +62,7 @@
                     <th>Email</th>
                     <th>KTP</th>
                     <th>Tanggal Pendaftaran</th>
-                    <th>Terverivikasi</th>
+                    <th>Terverifikasi</th>
                     <th>Aktif</th>
                     <th>Aksi</th>
                   </tr>
@@ -75,11 +75,20 @@
                       <td>{{ $admin->email }}</td>
                       <td>{{ $admin->ktp }}</td>
                       <td>Jum, 10 Mei 2019, 17:26:52</td>
-                      <td>Sudah Terverifikasi <i class="fas fa-check-circle text-success"></td>
-                      <td>Aktif <i class="fas fa-check-circle text-success"></td>
+                      <td> {{$admin->Verifikasi->Verifikasi}} <i class="fas fa-check-circle text-success"></td>
+                      <td>{{ $admin->Status->Status}} <i class="fas fa-check-circle text-success"></td>
                       <td>
-                        <button type="button" class="btn btn-warning btn-sm">Nonaktif</button>
-                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editAdmin">Edit</button>
+                        @if($admin->Status->Status == 'Aktif')
+                          <a onclick="return confirm('Apakah anda yakin ingin mengubah status?')" href="{{ url('/admin-quiz/update-status', $admin->id) }}">
+                            <button type="button" class="btn btn-warning btn-sm text-white">Nonaktif</button>
+                          </a>
+                        @else
+                          <a onclick="return confirm('Apakah anda yakin ingin mengubah status?')" href="{{ url('/admin-quiz/update-status-aktif',$admin->id) }}">
+                            <button type="button" class="btn btn-success btn-sm">Aktif</button>
+                          </a>
+                        @endif
+
+                        <button type="button" class="btn btn-primary btn-sm btn-ubah" data-toggle="modal" data-target="#editAdmin" data-id="{{ $admin->id }}" data-Nama="{{ $admin->nama }}" data-Email="{{ $admin->email }}" data-KTP="{{ $admin->ktp }}">Edit</button>
 
                         <!-- Modal Edit Admin -->
                         <div class="modal fade" id="editAdmin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -92,26 +101,27 @@
                                 </button>
                               </div>
                               <div class="modal-body text-white" style="background-color: #ffa200;">
-                                <form>
+                                <form action="#" method="POST" id="formEdit">
+                                  @method("put")
                                   <div class="form-group">
                                     <label for="nama">Nama Pengguna</label>
-                                    <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna">
+                                    <input type="text" class="form-control" id="namaEdit" placeholder="Nama Pengguna">
                                   </div>
                                   <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                    <input type="email" class="form-control" id="emailEdit" placeholder="Email">
                                   </div>
                                   <div class="form-group">
                                     <label for="ktp">KTP</label>
-                                    <input type="number" class="form-control" id="ktp" placeholder="Kartu Tanda Penduduk">
+                                    <input type="number" class="form-control" id="ktpEdit" placeholder="Kartu Tanda Penduduk">
                                   </div>
                                   <div class="form-group">
                                     <label for="ktp">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="New Password">
+                                    <input type="password" class="form-control" id="passwordEdit" placeholder="New Password">
                                   </div>
                                   <div class="form-group">
                                     <label for="ktp">Password</label>
-                                    <input type="password" class="form-control" id="password" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" id="passwordEdit" placeholder="Confirm Password">
                                   </div>
                                 </form>
                               </div>

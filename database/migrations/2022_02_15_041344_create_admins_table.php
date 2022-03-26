@@ -20,8 +20,8 @@ class CreateAdminsTable extends Migration
             $table->string('email')->unique();
             $table->integer('ktp')->nullable();
             $table->string('password');
-            $table->string('tervervikasi')->nullable();
-            $table->string('aktif')->nullable();
+            $table->string('id_verifikasi')->nullable();
+            $table->string('id_status')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

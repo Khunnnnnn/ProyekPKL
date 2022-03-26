@@ -21,4 +21,13 @@ class Admin extends Authenticatable
 
     protected $table = 'admins';
     protected $primaryKey='id';
+
+    public function Verifikasi()
+    {
+        return $this->belongsTo(Verifikasi::class,'id_verifikasi');
+    }
+    public function Status()
+    {
+        return $this->belongsTo(Status::class,'id_status');
+    }
 }

@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::get('/', [DashboardController::class, 'index']);
     Route::resource('/kuis', KuizController::class);
     Route::resource('/admin-quiz', AdminController::class);
+    Route::get('/admin-quiz/update-status/{id}', [AdminController::class, 'updateStatus']);
+    Route::get('/admin-quiz/update-status-aktif/{id}', [AdminController::class, 'updateStatusAktif']);
     Route::resource('/kelas', KelasController::class);
     Route::resource('/jurusan', JurusanController::class);
     Route::resource('/siswa', SiswaController::class);

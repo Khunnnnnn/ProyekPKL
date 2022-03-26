@@ -12,4 +12,9 @@ class Verifikasi extends Model
     {
         return $this->hasMany(Murid::class,'id_verifikasi');
     }
+
+    public function Admin()
+    {
+        return $this->hasMany(Admin::class,'id_verifikasi');
+    }
 }
