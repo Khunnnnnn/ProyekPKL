@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Guru;
 use App\Models\Jurusan;
 use App\Models\Kelaz;
+use App\Models\Status;
+use App\Models\Verifikasi;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
@@ -30,16 +33,21 @@ class LoginController extends Controller
     {
         $level = Level::all();
         $jurusan = Jurusan::all();
+        $status = Status::all();
+        $verif = Verifikasi::all();
         $kelas = Kelaz::all();
         return view('layouts.register.registerMurid', [
             'level' => $level,
             'jurusan' => $jurusan,
-            'kelas' => $kelas
+            'kelas' => $kelas,
+            'verif' => $verif,
+            'status' => $status
         ]);
     }
 
     public function postloginMurid(Request $request)
     {
+
         if (Auth::guard('murid')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect('/landing');
         } else {
@@ -84,8 +92,10 @@ class LoginController extends Controller
     public function registration()
     {
         $level = Level::all();
+        
         return view('layouts.register.register ', [
-            'level' => $level
+            'level' => $level,
+            
         ]);
     }
 
@@ -108,6 +118,7 @@ class LoginController extends Controller
             // dd($admin); 
             $admin->nama = $request->name;
             $admin->email = $request->email;
+            $admin->ktp = $request->ktp;
             $admin->password = Hash::make($request->password);
             $admin->level = $request->level;
             $admin->save();
@@ -116,6 +127,7 @@ class LoginController extends Controller
             // dd($guru); 
             $guru->nama = $request->name;
             $guru->email = $request->email;
+            $guru->ktp = $request->ktp;
             $guru->password = Hash::make($request->password);
             $guru->level = $request->level;
             $guru->save();
@@ -127,6 +139,7 @@ class LoginController extends Controller
     }
     public function customregisMurid(Request $request)
     {
+        // dd($request->all());
         $this->validate($request, [
             'nama' => 'required|min:3|max:50',
             'email' => 'required|email',
@@ -134,11 +147,14 @@ class LoginController extends Controller
             'password' => 'required|min:6',
             'jurusan' => 'required',
             'kelas' => 'required',
-            'level' => 'required'
+            'level' => 'required',
+            'verifikasi' => 'required',
+            'status' => 'required'
         ]);
         $siswa = new Murid;
         if ($siswa->level = $request->level == 1) {
             // dd($siswa); 
+            // dd($request->all());
             $siswa->nama = $request->nama;
             $siswa->email = $request->email;
             $siswa->nis_siswa = $request->nis;
@@ -146,6 +162,8 @@ class LoginController extends Controller
             $siswa->id_jurusan = $request->jurusan;
             $siswa->id_kelas = $request->kelas;
             $siswa->level = $request->level;
+            $siswa->id_verifikasi = $request->verifikasi;
+            $siswa->id_status = $request->status;
             $siswa->save();
             return redirect("/loginbaru")->withSuccess('Berhasil Daftar Sebagai Siswa');
         } else {

@@ -153,13 +153,26 @@
                   <td>{{ $data->created_at }}</td>
                   <td>{{$data->Jurusan->nama_jurusan}} | {{ $data->Kelaz->nama_kelas }}</td>
                   <td> {{$data->Verifikasi->Verifikasi}}</td>
-                  <td>{{$data->Status->Status}}</td>
+                  @if($data->id_status==1)
+                  <td>{{$data->Status->Status}} <i class="fas fa-check-circle text-success"></td>
+                  @elseif($data->id_status==2)
+                  <td>{{$data->Status->Status}} <i class="fas fa-exclamation-circle text-danger"></td>
+                  @endif
                   <td class="text-right">
+                    @if($data->id_status==1)
                     <form action="{{ url('post/update', $data->id ) }}" class="d-inline" method="POST">
                       @csrf
                       @method('put')
                       <button class="btn btn-secondary btn-sm">Nonaktif</button>
                     </form>
+                    @endif
+                    @if($data->id_status==2)
+                    <form action="{{ url('post/update', $data->id ) }}" class="d-inline" method="POST">
+                      @csrf
+                      @method('put')
+                      <button class="btn btn-success btn-sm">Aktif</button>
+                    </form>
+                    @endif
                     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $data->id }}">Update</button>
                     <form action="{{route('siswa.destroy',$data->id)}}" method="POST" class="d-inline">
                       @csrf
@@ -185,11 +198,11 @@
                           @method('put')
                           <div class="form-group">
                             <label for="nama">Nama Pengguna</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama_siswa}}" name="updatenamasiswa">
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Pengguna" value="{{ $data->nama}}" name="updatenamasiswa">
                           </div>
                           <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email_siswa}}" name="updateemailsiswa">
+                            <input type="email" class="form-control" id="email" placeholder="Email" value="{{ $data->email}}" name="updateemailsiswa">
                           </div>
                           <div class="form-group">
                             <label for="ktp">NIS</label>
@@ -215,8 +228,9 @@
                               @endforeach
                             </select>
                           </div>
+                          <button type="submit" class="btn btn-primary mx-auto">Perbarui Data</button>
                       </div>
-                      <button type="submit" class="btn btn-primary">Perbarui Data</button>
+                      
                       </form>
                       <!--END FORM UPDATE BARANG-->
                     </div>

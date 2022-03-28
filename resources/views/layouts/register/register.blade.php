@@ -61,12 +61,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group mb-1">
+                        <input type="checkbox" id="checkbox"><span>Show Password</span>
                     </div>
                     <div class="form-group">
                         <label for="level">Sebagai</label>
@@ -100,6 +103,14 @@
     <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
+    <!-- Show Password -->
+    <script>
+        $(document).ready(function() {
+            $('#checkbox').on('change', function() {
+                $('#password').attr('type', $('#checkbox').prop('checked') == true ? "text" : "password");
+            });
+        });
+    </script>
 </body>
 
 </html>

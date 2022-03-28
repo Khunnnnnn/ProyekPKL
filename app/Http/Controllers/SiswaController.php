@@ -65,7 +65,7 @@ class SiswaController extends Controller
             'email_siswa' => 'email',
             'nis_siswa' => 'max:13',
             'kelas_siswa' => 'required',
-            'jurusan_siswa' =>'required',
+            'jurusan_siswa' => 'required',
             'pass_siswa' => 'min:6'
         ]);
         // dd($request);
@@ -74,10 +74,10 @@ class SiswaController extends Controller
         $siswa->nama = $request->nama_siswa;
         $siswa->email = $request->email_siswa;
         $siswa->nis_siswa = $request->nis_siswa;
-        $siswa->id_kelas = $request-> kelas_siswa;
-        $siswa->id_jurusan = $request-> jurusan_siswa;
-        $siswa->id_verifikasi = $request-> verifikasi;
-        $siswa->id_status = $request-> status;
+        $siswa->id_kelas = $request->kelas_siswa;
+        $siswa->id_jurusan = $request->jurusan_siswa;
+        $siswa->id_verifikasi = $request->verifikasi;
+        $siswa->id_status = $request->status;
         $siswa->password = Hash::make($request->pass_siswa);
         $siswa->save();
         Alert::success('Congrats', 'You\'ve Successfully Registered');
@@ -116,12 +116,12 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $update_siswa= Murid::find($id);
-        $update_siswa->nama_siswa=$request->updatenamasiswa;
-        $update_siswa->email_siswa=$request->updateemailsiswa;
-        $update_siswa->nis_siswa=$request->updatenissiswa;
-        $update_siswa->id_kelas=$request->updatekelassiswa;
-        $update_siswa->id_jurusan=$request->updatejurusansiswa;
+        $update_siswa = Murid::find($id);
+        $update_siswa->nama_siswa = $request->updatenamasiswa;
+        $update_siswa->email_siswa = $request->updateemailsiswa;
+        $update_siswa->nis_siswa = $request->updatenissiswa;
+        $update_siswa->id_kelas = $request->updatekelassiswa;
+        $update_siswa->id_jurusan = $request->updatejurusansiswa;
         $update_siswa->save();
         Alert::success('Congrats', 'Data Berhasil Diubah');
         return redirect()->route('siswa.index');
@@ -143,10 +143,20 @@ class SiswaController extends Controller
     }
     public function updatestatus(Request $request, $id)
     {
-        $update_siswa= Murid::find($id);
-        $update_siswa->id_status = 2;
-        $update_siswa->update();
-        alert()->success('Status Diubah', 'Successfully')->toToast();
-        return redirect()->route('siswa.index');
+        $update_siswa = Murid::find($id);
+        if ($update_siswa->id_status == 1) {
+            $update_siswa->id_status = 2;
+            $update_siswa->update();
+            alert()->info('Status Menjadi Nonaktif', 'Successfully')->toToast();
+            return redirect()->route('siswa.index');
+        } elseif ($update_siswa->id_status == 2) {
+            $update_siswa->id_status = 1;
+            $update_siswa->update();
+            alert()->success('Status Menjadi Aktif', 'Successfully')->toToast();
+            return redirect()->route('siswa.index');
+        } else {
+            alert()->error('Status Sudah Nonaktif', 'Failed')->toToast();
+            return redirect()->route('siswa.index');
+        }
     }
 }

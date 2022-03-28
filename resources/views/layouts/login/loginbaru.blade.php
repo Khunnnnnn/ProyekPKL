@@ -5,7 +5,8 @@
     <title>Login APP Quiz</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-@include('sweetalert::alert')
+    @include('sweetalert::alert')
     <section class="ftco-section">
         <div class="container">
             @if (session('success'))
@@ -53,7 +54,12 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="label" for="password">Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                    <div class="input-group" id="show_hide_password">
+                                        <input type="password" name='password' class="form-control" name="password" required autocomplete="current-password">
+                                        <div class="input-group-append">
+                                            <a href="" class="btn btn-outline-secondary"><i class="bi bi-eye-slash" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
@@ -75,6 +81,23 @@
     <script src="{{asset('js/popper.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+    <!-- Show Password -->
+    <script>
+        $(document).ready(function() {
+            $("#show_hide_password a").on('click', function(event) {
+                event.preventDefault();
+                if ($('#show_hide_password input').attr("type") == "text") {
+                    $('#show_hide_password input').attr('type', 'password');
+                    $('#show_hide_password i').addClass("bi bi-eye-slash");
+                    $('#show_hide_password i').removeClass("bi bi-eye");
+                } else if ($('#show_hide_password input').attr("type") == "password") {
+                    $('#show_hide_password input').attr('type', 'text');
+                    $('#show_hide_password i').removeClass("bi bi-eye-slash");
+                    $('#show_hide_password i').addClass("bi bi-eye");
+                }
+            });
+        });
+    </script>
 
 </body>
 

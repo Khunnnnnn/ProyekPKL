@@ -17,20 +17,21 @@
 </head>
 
 <body class="hold-transition login-page">
+    @include('sweetalert::alert')
     <div class="login-box">
         <div class="login-logo">
             <a href="#"><b>App</b>Quiz</a>
         </div>
         @if (session('success'))
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+        <div class="col-sm-12">
+            <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            @endif
+        </div>
+        @endif
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
@@ -46,18 +47,21 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
+                    <div class="form-group mb-1">
+                        <input type="checkbox" id="checkbox"><span>Show Password</span>
+                    </div>
                     <div class="row">
                         <!-- /.col -->
-                        
+
                         <div class="col-4">
-                        <a class="btn btn-secondary"  href="{{route('register-user')}}">Sign Up</a>
+                            <a class="btn btn-secondary" href="{{route('register-user')}}">Sign Up</a>
                         </div>
                         <div class="col-4 ml-auto">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -77,6 +81,14 @@
     <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('admin/dist/js/adminlte.min.js')}}"></script>
+    <!-- Show Password -->
+    <script>
+        $(document).ready(function() {
+            $('#checkbox').on('change', function() {
+                $('#password').attr('type', $('#checkbox').prop('checked') == true ? "text" : "password");
+            });
+        });
+    </script>
 </body>
 
 </html>
