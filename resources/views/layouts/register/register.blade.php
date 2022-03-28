@@ -24,7 +24,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Login untuk melanjutkan</p>
+                <p class="login-box-msg">Register</p>
                 @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
@@ -71,6 +71,27 @@
                     <div class="form-group mb-1">
                         <input type="checkbox" id="checkbox"><span>Show Password</span>
                     </div>
+                    <div class="form-group">
+                        <label for="level">Verifikasi</label>
+                        <select class="form-control" name="verif">
+                            @foreach ($verif as $row)
+                            <option value="{{$row->id}}">
+                                {{$row->Verifikasi}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Status</label>
+                        <select class="form-control" name="status">
+                            @foreach ($status as $row)
+                            <option value="{{$row->id}}">
+                                {{$row->Status}}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="level">Sebagai</label>
                         <select class="form-control" name="level">

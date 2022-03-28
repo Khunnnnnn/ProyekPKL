@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call(StatusSeeder::class);
+        $this->call(LevelSeeder::class);
+        $this->call(VerifikasiSeeder::class);
+        $this->call(KelasSeeder::class);
+        $this->call(JurusanSeeder::class);
     }
 }

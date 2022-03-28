@@ -92,9 +92,12 @@ class LoginController extends Controller
     public function registration()
     {
         $level = Level::all();
-        
+        $status = Status::all();
+        $verif = Verifikasi::all();
         return view('layouts.register.register ', [
             'level' => $level,
+            'status' => $status,
+            'verif' => $verif
             
         ]);
     }
@@ -120,6 +123,8 @@ class LoginController extends Controller
             $admin->email = $request->email;
             $admin->ktp = $request->ktp;
             $admin->password = Hash::make($request->password);
+            $admin->id_verifikasi = $request->verif;
+            $admin->id_status = $request->status;
             $admin->level = $request->level;
             $admin->save();
             return redirect("/Login-Admin")->withSuccess('Berhasil Daftar Sebagai Admin');
@@ -129,6 +134,8 @@ class LoginController extends Controller
             $guru->email = $request->email;
             $guru->ktp = $request->ktp;
             $guru->password = Hash::make($request->password);
+            $guru->id_verifikasi = $request->verif;
+            $guru->id_status = $request->status;
             $guru->level = $request->level;
             $guru->save();
             return redirect("/Login-Admin")->withSuccess('Berhasil Daftar Sebagai Guru');
