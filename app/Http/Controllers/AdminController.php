@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-use App\Models\Verifikasi;
 use App\Models\Status;
+use App\Models\Verifikasi;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Level;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -24,6 +27,7 @@ class AdminController extends Controller
             'admins' => Admin::all(),
             'verifikasi' => Verifikasi::all(),
             'status' => Status::all(),
+            'level' => Level::all()
         ]);
     }
 
@@ -50,7 +54,9 @@ class AdminController extends Controller
             'email' => 'required|email:dns|unique:admins|max:100',
             'ktp' => 'required|max:20',
             'password' => 'required|min:5|max:100',
-            'aktif' => 'required|max:15',
+            'id_verifikasi' => 'required',
+            'id_status' => 'required',
+            'level' => 'required'
         ]);
 
         // $aktif = 'Aktif';
@@ -59,6 +65,8 @@ class AdminController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         Admin::create($validatedData);
+        Alert::success('Congrats', 'Data Berhasil Ditambah');
+        return redirect()->back();
     }
 
     /**
@@ -93,6 +101,14 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $admin = Admin::find($id);
+        $admin->nama = $request->nama;
+        $admin->email = $request->email;
+        $admin->ktp = $request->ktp;
+        $admin->update();
+        Alert::success('Congrats', 'Data Berhasil Diubah');
+        return redirect()->back();
+        
     }
 
     /**
@@ -104,6 +120,10 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+        alert()->success('Post Deleted', 'Successfully')->toToast();
+        return redirect()->back();
     }
 
     public function updateStatus(Request $request, $id){

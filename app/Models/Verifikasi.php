@@ -17,4 +17,9 @@ class Verifikasi extends Model
     {
         return $this->hasMany(Admin::class,'id_verifikasi');
     }
+
+    public function Guru()
+    {
+        return $this->hasMany(Guru::class,'id_verifikasi');
+    }
 }

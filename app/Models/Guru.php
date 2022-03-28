@@ -20,4 +20,13 @@ class Guru extends Authenticatable
 
     protected $table = 'gurus';
     protected $primaryKey='id';
+
+    public function Verifikasi()
+    {
+        return $this->belongsTo(Verifikasi::class,'id_verifikasi');
+    }
+    public function Status()
+    {
+        return $this->belongsTo(Status::class,'id_status');
+    }
 }

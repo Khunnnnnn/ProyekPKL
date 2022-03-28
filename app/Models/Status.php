@@ -18,5 +18,9 @@ class Status extends Model
         return $this->hasMany(Admin::class,'id_status');
     }
 
+    public function Guru()
+    {
+        return $this->hasMany(Guru::class,'id_status');
+    }
    
 }

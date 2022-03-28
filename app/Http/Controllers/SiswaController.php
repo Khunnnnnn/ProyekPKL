@@ -9,6 +9,7 @@ use App\Models\Jurusan;
 use App\Models\Verifikasi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Level;
 use App\Models\Murid;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,6 +29,7 @@ class SiswaController extends Controller
         $siswa = Murid::all();
         $verif = Verifikasi::all();
         $status = Status::all();
+        $level = Level::all();
         // dd($siswa);
         return view('layouts.siswa', [
             'kelas' => $kelas,
@@ -37,7 +39,8 @@ class SiswaController extends Controller
             'smallTitle' => " - Siswa",
             'headTitle' => "Siswa",
             'verif' => $verif,
-            'status' => $status
+            'status' => $status,
+            'level' => $level
         ]);
     }
 
@@ -78,6 +81,7 @@ class SiswaController extends Controller
         $siswa->id_jurusan = $request->jurusan_siswa;
         $siswa->id_verifikasi = $request->verifikasi;
         $siswa->id_status = $request->status;
+        $siswa->level = $request->level;
         $siswa->password = Hash::make($request->pass_siswa);
         $siswa->save();
         Alert::success('Congrats', 'You\'ve Successfully Registered');
@@ -117,8 +121,8 @@ class SiswaController extends Controller
     {
         //
         $update_siswa = Murid::find($id);
-        $update_siswa->nama_siswa = $request->updatenamasiswa;
-        $update_siswa->email_siswa = $request->updateemailsiswa;
+        $update_siswa->nama = $request->updatenamasiswa;
+        $update_siswa->email = $request->updateemailsiswa;
         $update_siswa->nis_siswa = $request->updatenissiswa;
         $update_siswa->id_kelas = $request->updatekelassiswa;
         $update_siswa->id_jurusan = $request->updatejurusansiswa;

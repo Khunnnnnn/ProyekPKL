@@ -118,7 +118,18 @@
                         <label for="ktp">Password</label>
                         <input type="password" class="form-control  @error('name') is-invalid @enderror" id="password" placeholder="Confirm Password" name="pass_siswa">
                       </div>
-                    
+                      <div class="form-group">
+                        <label for="level">Sebagai</label>
+                        <select class="form-control" name="level">
+                          @foreach ($level as $row)
+                          @if($row->level == 'Siswa')
+                          <option value="{{$row->id}}">
+                            {{$row->level}}
+                          </option>
+                          @endif
+                          @endforeach
+                        </select>
+                      </div>
                   </div>
                   <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
                     <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal">Batal</button>
@@ -138,9 +149,9 @@
                   <th>NIS</th>
                   <th style="width: 13%">Tanggal Daftar</th>
                   <th>Kelas</th>
-                  <th>Terverivikasi</th>
+                  <th>Terverifikasi</th>
                   <th>Aktif</th>
-                  <th style="width: 18%">Aksi</th>
+                  <th style="width: 17%">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -152,7 +163,7 @@
                   <td>{{ $data->nis_siswa }}</td>
                   <td>{{ $data->created_at }}</td>
                   <td>{{$data->Jurusan->nama_jurusan}} | {{ $data->Kelaz->nama_kelas }}</td>
-                  <td> {{$data->Verifikasi->Verifikasi}}</td>
+                  <td> {{$data->Verifikasi->Verifikasi}} <i class="fas fa-check-circle text-success"></td>
                   @if($data->id_status==1)
                   <td>{{$data->Status->Status}} <i class="fas fa-check-circle text-success"></td>
                   @elseif($data->id_status==2)
@@ -230,7 +241,7 @@
                           </div>
                           <button type="submit" class="btn btn-primary mx-auto">Perbarui Data</button>
                       </div>
-                      
+
                       </form>
                       <!--END FORM UPDATE BARANG-->
                     </div>

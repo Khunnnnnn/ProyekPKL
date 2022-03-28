@@ -59,6 +59,8 @@ Route::group(['middleware' => ['auth:admin']], function () {
     Route::resource('/guru', GuruController::class);
     // Update Status Siswa
     Route::put('/post/update/{id}', [SiswaController::class, 'updatestatus']);
+    // Update Status guru
+    Route::put('/post/updateGuru/{id}', [GuruController::class, 'updatestatus']);
     Route::resource('/kategorikuis', KategoriKuizController::class);
     // Route::get('/laporan', function () {
     //     return view('layouts.laporan.datalaporan');

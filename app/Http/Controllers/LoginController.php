@@ -47,7 +47,7 @@ class LoginController extends Controller
 
     public function postloginMurid(Request $request)
     {
-
+        
         if (Auth::guard('murid')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect('/landing');
         } else {
