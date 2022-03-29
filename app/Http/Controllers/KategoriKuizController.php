@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kuiz;
 use App\Models\KategoriKuiz;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -28,7 +29,8 @@ class KategoriKuizController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function create($id)
     {
         //
     }
@@ -42,11 +44,17 @@ class KategoriKuizController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'namakategori' => 'required'
+            'namakategori' => 'required',
+            'judulkuis' => 'required',
+            'nilaikkm' => 'required',
+            'deskripsi' => 'required'
         ]);
 
         $kategorikuis = new KategoriKuiz;
         $kategorikuis->nama_kategori = $request->namakategori;
+        $kategorikuis->judul_kuis = $request->judulkuis;
+        $kategorikuis->nilai_kkm = $request->nilaikkm;
+        $kategorikuis->deskripsi = $request->deskripsi;
         $kategorikuis->save();
         Alert::success('Sukses', 'Data Berhasil Ditambahkan');
         return redirect()->route('kategorikuis.index')->with(compact('kategorikuis'));

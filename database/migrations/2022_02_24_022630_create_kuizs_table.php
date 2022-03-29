@@ -15,10 +15,8 @@ class CreateKuizsTable extends Migration
     {
         Schema::create('kuizs', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->integer('nilai_kkm');
-            $table->string('deskripsi');
             $table->string('soal');
+            $table->integer('durasi');
             $table->foreignId('kategori_kuiz_id');
             $table->timestamps();
         });

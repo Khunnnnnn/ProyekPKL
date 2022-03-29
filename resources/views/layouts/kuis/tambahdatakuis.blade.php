@@ -60,10 +60,10 @@
                         <label>Mata Pelajaran</label>
                         <div class="form-group">
                           <select class="form-control" name="kategori_kuiz">
-                            <option disabled selected>~Mata Pelajaran~</option>
-                            @foreach ($kategori_kuiz as $data)
-                              <option value="{{ $data->id }}">{{ $data->nama_kategori }}</option>
-                            @endforeach
+                            {{-- <option disabled selected>~Mata Pelajaran~</option>
+                            @foreach ($kategori_kuiz as $data) --}}
+                            <option value="{{ $kategori_id }}" selected>{{ $cariKategori->nama_kategori }}</option>
+                            {{-- @endforeach --}}
                           </select>
                         </div>
 
@@ -71,19 +71,19 @@
                           <div class="d-flex mt-2 text-bold">
                             <div class="p-2 flex-fill">
                               <label for="judul">Judul</label>
-                              <input type="text" name="judul" class="form-control" placeholder="Judul Kuis" id="judul">
+                              <input type="text" name="judul" class="form-control" placeholder="Judul Kuis" id="judul" value="{{ $cariKategori->judul_kuis }}" disabled>
                             </div>
 
                             <div class="p-2 flex-fill">
                               <label for="nilai_kkm">Nilai Minimun Kelulusan</label>
-                              <input type="number" name="nilai_kkm" class="form-control" placeholder="Nilai Minimun Kelulusan" id="nilai_kkm">
+                              <input type="number" name="nilai_kkm" class="form-control" placeholder="Nilai Minimun Kelulusan" id="nilai_kkm" value="{{ $cariKategori->nilai_kkm }}" disabled>
                             </div>
                           </div>
                         </div>
 
                         <div class="mt-2">
                           <label for="deskripsi">Deskripsi</label>
-                          <textarea name="deskripsi" class="form-control" rows="5" id="deskripsi"></textarea>
+                          <textarea name="deskripsi" class="form-control" rows="5" id="deskripsi" disabled>{{ $cariKategori->deskripsi }}</textarea>
                         </div>
 
                         <div>
@@ -106,7 +106,7 @@
                         <div class="d-flex mt-2">
                           <div class="p-2 flex-fill">
                             <label> Video</label>
-                           <div class="input-group">
+                            <div class="input-group">
                               <div class="input-group-prepend">
                                 <button class="btn btn-danger">Reset</button>
                               </div>

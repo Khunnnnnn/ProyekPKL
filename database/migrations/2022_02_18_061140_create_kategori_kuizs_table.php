@@ -16,6 +16,9 @@ class CreateKategoriKuizsTable extends Migration
         Schema::create('kategori_kuizs', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kategori');
+            $table->string('judul_kuis');
+            $table->integer('nilai_kkm');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }

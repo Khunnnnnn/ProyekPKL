@@ -21,19 +21,32 @@
                       </button>
                     </div>
                     <div class="modal-body text-white" style="background-color: #ffa200;">
+
                       <form action="{{ route('kategorikuis.store') }}" method="POST" id="frmProduct">
                         @csrf
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Nama Kategori</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nama Kategori" name="namakategori">
+                          <label for="namakategori">Nama Kategori</label>
+                          <input type="text" class="form-control" id="namakategori" placeholder="Masukkan Nama Kategori" name="namakategori">
                         </div>
-
+                        <div class="form-group">
+                          <label for="judulkuis">Judul Kuis</label>
+                          <input type="text" class="form-control" id="judulkuis" placeholder="Masukkan Judul Kuis" name="judulkuis">
+                        </div>
+                        <div class="form-group">
+                          <label for="nilaikkm">Nilai Minimum Kelulusan</label>
+                          <input type="number" class="form-control" id="nilaikkm" placeholder="Masukkan Nilai KKM" name="nilaikkm">
+                        </div>
+                        <div class="form-group">
+                          <label for="deskripsi">Deskripsi</label>
+                          <textarea name="deskripsi" class="form-control" rows="5" id="deskripsi" placeholder="Masukkan Deskripsi Soal Ujian"></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer" style="background-color: #ea9f1c; border:none !important;">
                       <button type="button" class="btn btn-danger mr-auto" data-dismiss="modal" id="close-btn">Batalkan</button>
                       <button type="submit" class="btn btn-success">Selesai</button>
                     </div>
                     </form>
+
                   </div>
                 </div>
               </div>
@@ -42,8 +55,11 @@
                 <thead>
                   <tr>
                     <th style="width: 1%;">No.</th>
-                    <th style="width: 13%;">Nama</th>
-                    <th style="width: 5%;">Aksi</th>
+                    <th style="width: 13%;">Nama Kategori</th>
+                    <th style="width: 13%;">Judul Kuis</th>
+                    <th style="width: 5%;">Nilai KKM</th>
+                    <th style="width: 5%;">Deskripsi</th>
+                    <th style="width: 10%;">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,7 +67,13 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $mapel->nama_kategori }}</td>
+                      <td>{{ $mapel->judul_kuis }}</td>
+                      <td>{{ $mapel->nilai_kkm }}</td>
+                      <td>{{ $mapel->deskripsi }}</td>
                       <td class="text-right">
+                        <a href="/kuis/create/{{ $mapel->id }}">
+                          <button type="button" class="btn btn-success btn-sm">Tambah Kuis</button>
+                        </a>
                         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $mapel->id }}">Edit</button>
                         <form action="{{ route('kategorikuis.destroy', $mapel->id) }}" method="POST" class="d-inline">
                           @csrf
@@ -60,6 +82,7 @@
                         </form>
                       </td>
                     </tr>
+
                     <!-- Modal Update Barang-->
                     <div class="modal fade" id="modalUpdateBarang{{ $mapel->id }}" tabindex="-1" aria-labelledby="modalUpdateBarang" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">

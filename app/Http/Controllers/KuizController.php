@@ -29,15 +29,18 @@ class KuizController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    // UNTUK MENAMPILKAN FORM TAMBAH DATA KUIS DENGAN PENGIRIMAN ID KATEGORI KUIS
+    public function create($id)
     {
         return view('layouts.kuis.tambahdatakuis', [
             'title' => "Kuis",
             'smallTitle' => " - Kuis",
             'headTitle' => "Kuis",
+            'kategori_id' => $id,
+            'cariKategori' => KategoriKuiz::find($id),
             'kategori_kuiz' => KategoriKuiz::all(),
-            'kuiz' => Kuiz::all()
-            // 'kelas' => Kuizs::all()
+            'kuiz' => Kuiz::all(),
         ]);
     }
 
@@ -50,19 +53,15 @@ class KuizController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kategori_kuiz' => 'required|max:100',
-            'judul' => 'required|max:100',
-            'nilai_kkm' => 'required|max:3',
-            'deskripsi' => 'required',
+            'kategori_kuiz' => 'required',
             'soal' => 'required',
+            'durasi' => 'required',
         ]);
 
         Kuiz::create([
             'kategori_kuiz_id' => $request->kategori_kuiz,
-            'judul' => $request->judul,
-            'nilai_kkm' => $request->nilai_kkm,
-            'deskripsi' => $request->deskripsi,
             'soal' => $request->soal,
+            'durasi' => $request->durasi,
         ]);
 
         return redirect('/kuis/create');

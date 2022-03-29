@@ -11,7 +11,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriKuizController;
 use App\Http\Controllers\LaporanController;
-
+use App\Models\KategoriKuiz;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +49,9 @@ Route::post('customregisMurid', [LoginController::class, 'customregisMurid'])->n
 Route::group(['middleware' => ['auth:admin']], function () {
     // Tampil Dashboard
     Route::get('/', [DashboardController::class, 'index']);
+
     Route::resource('/kuis', KuizController::class);
+    Route::get('/kuis/create/{id}', [KuizController::class, 'create']);
     Route::resource('/admin-quiz', AdminController::class);
     Route::get('/admin-quiz/update-status/{id}', [AdminController::class, 'updateStatus']);
     Route::get('/admin-quiz/update-status-aktif/{id}', [AdminController::class, 'updateStatusAktif']);
