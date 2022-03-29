@@ -58,6 +58,8 @@
 
                       <div class="col-12 ml-2 mt-2">
                         <label>Mata Pelajaran</label>
+                        <input type="hidden" class="form-control" name="kategori_id" value="{{ $kategori_id }}"/>
+
                         <div class="form-group">
                           <select class="form-control" name="kategori_kuiz">
                             {{-- <option disabled selected>~Mata Pelajaran~</option>
@@ -93,7 +95,7 @@
                             </div>
 
                             <div class="p-2 ">
-                              <input type="number" class="form-control" placeholder="Durasi Soal Per Detik">
+                              <input type="number" name="durasi" class="form-control" placeholder="Durasi Soal Per Detik">
                             </div>
 
                             <div class="p-2 ml-auto">

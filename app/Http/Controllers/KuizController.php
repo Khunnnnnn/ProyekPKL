@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KategoriKuiz;
 use App\Models\Kuiz;
+use App\Models\KategoriKuiz;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KuizController extends Controller
 {
@@ -58,13 +59,14 @@ class KuizController extends Controller
             'durasi' => 'required',
         ]);
 
-        Kuiz::create([
-            'kategori_kuiz_id' => $request->kategori_kuiz,
-            'soal' => $request->soal,
-            'durasi' => $request->durasi,
-        ]);
+        $kuis = new Kuiz;
+        $kuis->kategori_kuiz_id = $request->kategori_kuiz;
+        $kuis->soal = $request->soal;
+        $kuis->durasi = $request->durasi;
+        $kuis->save();
+        Alert::success('Sukses', 'Data Berhasil Ditambahkan');
+        return redirect("/kuis/create/$kuis->kategori_kuiz_id");
 
-        return redirect('/kuis/create');
     }
 
     /**

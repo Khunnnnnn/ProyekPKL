@@ -93,6 +93,9 @@ class KategoriKuizController extends Controller
     {
         $update_kategori = KategoriKuiz::find($id);
         $update_kategori->nama_kategori = $request->updateNamaKategori;
+        $update_kategori->judul_kuis = $request->updateJudulKuis;
+        $update_kategori->nilai_kkm = $request->updateNilaiKkm;
+        $update_kategori->deskripsi = $request->updateDeskripsi;
         $update_kategori->save();
         Alert::success('Sukses', 'Data Berhasil Diubah');
         return redirect()->route('kategorikuis.index');

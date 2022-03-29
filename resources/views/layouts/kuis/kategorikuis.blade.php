@@ -55,10 +55,10 @@
                 <thead>
                   <tr>
                     <th style="width: 1%;">No.</th>
-                    <th style="width: 13%;">Nama Kategori</th>
-                    <th style="width: 13%;">Judul Kuis</th>
-                    <th style="width: 5%;">Nilai KKM</th>
-                    <th style="width: 5%;">Deskripsi</th>
+                    <th style="width: 9%;">Nama Kategori</th>
+                    <th style="width: 9%;">Judul Kuis</th>
+                    <th style="width: 4%;">Nilai KKM</th>
+                    <th style="width: 14%;">Deskripsi</th>
                     <th style="width: 10%;">Aksi</th>
                   </tr>
                 </thead>
@@ -74,7 +74,7 @@
                         <a href="/kuis/create/{{ $mapel->id }}">
                           <button type="button" class="btn btn-success btn-sm">Tambah Kuis</button>
                         </a>
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateBarang{{ $mapel->id }}">Edit</button>
+                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalUpdateKategori{{ $mapel->id }}">Edit</button>
                         <form action="{{ route('kategorikuis.destroy', $mapel->id) }}" method="POST" class="d-inline">
                           @csrf
                           @method('DELETE')
@@ -83,8 +83,8 @@
                       </td>
                     </tr>
 
-                    <!-- Modal Update Barang-->
-                    <div class="modal fade" id="modalUpdateBarang{{ $mapel->id }}" tabindex="-1" aria-labelledby="modalUpdateBarang" aria-hidden="true">
+                    <!-- Modal Update Kategori Kuis-->
+                    <div class="modal fade" id="modalUpdateKategori{{ $mapel->id }}" tabindex="-1" aria-labelledby="modalUpdateKategori" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content bg-warning">
                           <div class="modal-header text-white" style="background-color: #ea9f1c; border:none !important;">
@@ -102,6 +102,18 @@
                               <div class="form-group">
                                 <label for="updateNamaKategori">Nama Kategori</label>
                                 <input type="text" class="form-control" id="updateNamaKategori" name="updateNamaKategori" value="{{ $mapel->nama_kategori }}">
+                              </div>
+                              <div class="form-group">
+                                <label for="updateJudulKuis">Judul Kuis</label>
+                                <input type="text" class="form-control" id="updateJudulKuis" name="updateJudulKuis" value="{{ $mapel->judul_kuis }}">
+                              </div>
+                              <div class="form-group">
+                                <label for="updateNilaiKkm">Nilai Minimum Kelulusan</label>
+                                <input type="number" class="form-control" id="updateNilaiKkm" name="updateNilaiKkm" value="{{ $mapel->nilai_kkm }}">
+                              </div>
+                              <div class="form-group">
+                                <label for="updateDeskripsi">Deskripsi</label>
+                                <textarea name="updateDeskripsi" class="form-control" rows="5" id="updateDeskripsi">{{ $mapel->deskripsi }}</textarea>
                               </div>
                               <!--END FORM UPDATE BARANG-->
                           </div>
