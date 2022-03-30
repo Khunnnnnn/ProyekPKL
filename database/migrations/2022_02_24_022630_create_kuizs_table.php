@@ -18,6 +18,8 @@ class CreateKuizsTable extends Migration
             $table->string('soal');
             $table->integer('durasi');
             $table->foreignId('kategori_kuiz_id');
+            $table->string('gambar')->nullable();
+            $table->string('video')->nullable();
             $table->timestamps();
         });
     }

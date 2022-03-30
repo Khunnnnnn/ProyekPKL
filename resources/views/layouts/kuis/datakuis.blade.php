@@ -27,8 +27,8 @@
                   @foreach ($kuiz as $item)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
-                      <td>{{ $item->kategoriKuiz->nama_kategori }}</td>
-                      <td>{{ $item->judul }}</td>
+                      <td>{{ $item->nama_kategori }}</td>
+                      <td>{{ $item->judul_kuis }}</td>
                       <td>{{ $item->deskripsi }}</td>
                       <td>
                         <button type="button" class="btn btn-info btn-sm">Set jadwal</button>

@@ -21,7 +21,7 @@ class KuizController extends Controller
             'title' => "Kuis",
             'smallTitle' => " - Kuis",
             'headTitle' => "Kuis",
-            'kuiz' => Kuiz::all()
+            'kuiz' => KategoriKuiz::all()
         ]);
     }
 
@@ -53,16 +53,29 @@ class KuizController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request->file('gambar')->store('gambar-kuis');
         $request->validate([
             'kategori_kuiz' => 'required',
             'soal' => 'required',
             'durasi' => 'required',
+            'gambar' => 'required|file|max:3072',
+            'video' => 'required|file|max:30000'
         ]);
 
         $kuis = new Kuiz;
         $kuis->kategori_kuiz_id = $request->kategori_kuiz;
         $kuis->soal = $request->soal;
         $kuis->durasi = $request->durasi;
+
+        if($request->file('gambar')) {
+            $kuis->gambar = $request->file('gambar')->store('gambar-kuis');
+        }
+
+        if($request->file('video')) {
+            $kuis->video = $request->file('video')->store('video-kuis');
+        }
+
+
         $kuis->save();
         Alert::success('Sukses', 'Data Berhasil Ditambahkan');
         return redirect("/kuis/create/$kuis->kategori_kuiz_id");

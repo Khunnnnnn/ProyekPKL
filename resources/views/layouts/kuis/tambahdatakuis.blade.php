@@ -53,7 +53,7 @@
                       </div>
                     </div>
 
-                    <form action="/kuis" method="POST">
+                    <form action="/kuis" method="POST" enctype="multipart/form-data">
                       @csrf
 
                       <div class="col-12 ml-2 mt-2">
@@ -113,8 +113,8 @@
                                 <button class="btn btn-danger">Reset</button>
                               </div>
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Belum ada yang dipilih</label>
+                                <input type="file" class="custom-file-input" id="video" name="video">
+                                <label class="custom-file-label" for="video">File Video</label>
                               </div>
                             </div>
                           </div>
@@ -126,8 +126,8 @@
                                 <button class="btn btn-danger">Reset</button>
                               </div>
                               <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01">
-                                <label class="custom-file-label" for="inputGroupFile01">Belum ada yang dipilih</label>
+                                <input type="file" class="custom-file-input" id="gambar" name="gambar">
+                                <label class="custom-file-label" for="gambar">File Gambar</label>
                               </div>
                             </div>
                           </div>
