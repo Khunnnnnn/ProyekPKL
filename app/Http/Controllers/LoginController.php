@@ -60,9 +60,13 @@ class LoginController extends Controller
     {
         // dd($request->all());
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect('/');
+            if(auth()->guard('admin')->user()->id_status==1 ) {
+                return redirect('/' ); 
+            }
         } elseif (Auth::guard('guru')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect('/');
+            if(auth()->guard('guru')->user()->id_status==1 ) {
+                return redirect('/' ); 
+            }
         } else {
             Alert::error('Gagal Login', 'Isi Field Terlebih Dahulu');
             return redirect('/Login-Admin');
